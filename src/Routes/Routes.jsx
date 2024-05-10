@@ -7,6 +7,7 @@ import NotFound from '../pages/NotFound/NotFound.jsx';
 import AllFoods from '../pages/AllFoods/AllFoods.jsx';
 import SingleFoodDetails from '../pages/SingleFoodDetails/SingleFoodDetails.jsx';
 import Gallery from '../pages/Gallery/Gallery.jsx';
+import MyFoodItemPage from '../pages/MyFoodItemPage/MyFoodItemPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
         {
           path:'/gallery',
           element:<Gallery></Gallery>
+        },
+        {
+          path:'/my-food-items',
+          element:<MyFoodItemPage></MyFoodItemPage>
         }
     ]
   }
