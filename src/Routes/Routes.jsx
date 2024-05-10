@@ -4,6 +4,7 @@ import Home from '../pages/Home/Home.jsx';
 import Login from '../pages/Login/Login.jsx';
 import SignUp from '../pages/SignUp/SignUp.jsx';
 import NotFound from '../pages/NotFound/NotFound.jsx';
+import AllFoods from '../pages/AllFoods/AllFoods.jsx';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
         {
             path:'/sign-up',
             element:<SignUp></SignUp>
+        },
+        {
+          path:'/all-foods',
+          element:<AllFoods></AllFoods>
         }
     ]
   }

@@ -4,6 +4,7 @@ import slider1 from "../../assets/hero-slider-1.jpg"
 import slider2 from "../../assets/hero-slider-2.jpg"
 import slider3 from "../../assets/hero-slider-3.jpg"
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 
 
 const Banner = () => {
@@ -46,9 +47,9 @@ const Banner = () => {
                             <div className="md:w-[500px] font-outfit leading-normal my-6 opacity-90 md:text-xl">
                             Our restaurant is not just a place to dine; it's a destination where flavor meets exploration. Step into our world, where every dish is crafted to take you on a sensory safari
                             </div>
-                            <div>
+                            <Link to="/all-foods">
                                 <button className='btn btn-outline border-green-600 bg-transparent text-white hover:text-green-500 hover:bg-transparent hover:border hover:border-white'>Explore MORE</button>
-                            </div>
+                            </Link>
                         </div>
                     </div>
                     <div className="item">
@@ -59,9 +60,9 @@ const Banner = () => {
                             <div className="w-[500px] font-outfit leading-normal my-6 opacity-90 md:text-xl">
                             With each bite, you'll traverse landscapes of taste, texture, and aroma, guided by our expert chefs who are passionate about delivering excellence. 
                             </div>
-                            <div>
+                            <Link to="/all-foods">
                                 <button className='btn btn-outline border-green-600 bg-transparent text-white hover:text-green-500 hover:bg-transparent hover:border hover:border-white'>Explore MORE</button>
-                            </div>
+                            </Link>
                         </div>
                     </div>
                     <div className="item">
@@ -72,9 +73,9 @@ const Banner = () => {
                             <div className="w-[500px] font-outfit leading-normal my-6 opacity-90 md:text-xl">
                             Our restaurant is a celebration of culinary artistry, where every dish tells a story of passion and dedication.Join us at SavorSafari and let your palate be swept away on a flavorful safari of delights.
                             </div>
-                            <div className=''>
+                            <Link to="/all-foods">
                                 <button className='btn btn-outline border-green-600 bg-transparent text-white hover:text-green-500 hover:bg-transparent hover:border hover:border-white'>Explore MORE</button>
-                            </div>
+                            </Link>
                         </div>
                     </div>
                     

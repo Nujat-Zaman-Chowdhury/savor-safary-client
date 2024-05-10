@@ -8,8 +8,8 @@ const Navbar = () => {
 
     return (
         <div className="navbar flex flex-col items-center md:flex-row z-40 bg-transparent">
-        <Link to="/" className="flex-1 ">
-            <span className="btn border-0 shadow-none bg-gradient-to-r from-[#223822] to-[#98FB98] text-transparent bg-clip-text text-xl md:text-3xl font-bold p-0 md:p-4">SavorSafari</span>
+        <Link to="/" className="flex-1">
+            <span className="btn border-0 shadow-none bg-gradient-to-r from-[#223822] to-[#98FB98] text-transparent bg-clip-text text-xl md:text-3xl font-bold p-0 lg:p-4">SavorSafari</span>
         </Link>
         <div>
          
@@ -17,11 +17,11 @@ const Navbar = () => {
   </div>
   <div className="flex-none">
     <div className="dropdown dropdown-end">
-       <div className="flex gap-1  md:gap-8 items-center font-outfit md:text-xl">
+       <div className="flex gap-1 text-white  md:gap-8 items-center font-outfit md:text-xl">
        <Link className="relative group">Home
        <span className="absolute -bottom-1 left-0 w-0 h-1 bg-gradient-to-r from-[#223822] to-[#98FB98] transition-all group-hover:w-full"></span>
        </Link>
-       <Link className="relative group">All Foods
+       <Link to="/all-foods" className="relative group">All Foods
        <span className="absolute -bottom-1 left-0 w-0 h-1 bg-gradient-to-r from-[#223822] to-[#98FB98] transition-all group-hover:w-full"></span>
        </Link>
        <Link className="relative group">Gallery
