@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const AllFoods = () => {
     return (
-        <div className="w-full h-full font-outfit bg-[url('https://i.ibb.co/8zxX0XY/bg-2.jpg')] bg-cover bg-center bg-no-repeat">
+        <div className="w-full h-full font-outfit bg-[url('https://i.ibb.co/8zxX0XY/bg-2.jpg')] bg-cover bg-center bg-no-repeat p-5">
             <h3 className="text-green-300 font-bold mb-5 text-xl md:text-3xl text-center pt-5">Explore Our All Food Items</h3>
             <div className="text-center mt-6 text-white font-bold font-poppins">
                 <Link to="/">Home</Link> | <span className="bg-gradient-to-r from-[#223822] to-[#98FB98] text-transparent bg-clip-text">All Foods</span>
@@ -22,7 +22,7 @@ const AllFoods = () => {
 
             {/* card */}
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 container mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 container mx-auto px-7">
             <div className="w-full max-w-sm overflow-hidden  rounded-lg shadow-md shadow-zinc-50 bg-grey-100">
     <img className="object-cover object-center w-full h-56" src="https://cdn.pixabay.com/photo/2023/05/29/17/01/hamburger-8026582_640.jpg" alt="avatar"/>
 

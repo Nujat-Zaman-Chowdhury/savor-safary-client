@@ -5,6 +5,7 @@ import Login from '../pages/Login/Login.jsx';
 import SignUp from '../pages/SignUp/SignUp.jsx';
 import NotFound from '../pages/NotFound/NotFound.jsx';
 import AllFoods from '../pages/AllFoods/AllFoods.jsx';
+import SingleFoodDetails from '../pages/SingleFoodDetails/SingleFoodDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
         {
           path:'/all-foods',
           element:<AllFoods></AllFoods>
+        },
+        {
+          path:"/food-details",
+          element:<SingleFoodDetails></SingleFoodDetails>
         }
     ]
   }
