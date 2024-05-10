@@ -6,6 +6,7 @@ import SignUp from '../pages/SignUp/SignUp.jsx';
 import NotFound from '../pages/NotFound/NotFound.jsx';
 import AllFoods from '../pages/AllFoods/AllFoods.jsx';
 import SingleFoodDetails from '../pages/SingleFoodDetails/SingleFoodDetails.jsx';
+import Gallery from '../pages/Gallery/Gallery.jsx';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
         {
           path:"/food-details",
           element:<SingleFoodDetails></SingleFoodDetails>
+        },
+        {
+          path:'/gallery',
+          element:<Gallery></Gallery>
         }
     ]
   }
