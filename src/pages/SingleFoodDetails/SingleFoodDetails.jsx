@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const SingleFoodDetails = () => {
     return (
@@ -33,9 +34,9 @@ const SingleFoodDetails = () => {
                 </ul>
                 <p>Making Produre: </p>
             </div>
-            <div>
+            <Link to="/food-purchase">
             <button className="btn">Purchase</button>
-            </div>
+            </Link>
             </div>
            
         </div>
