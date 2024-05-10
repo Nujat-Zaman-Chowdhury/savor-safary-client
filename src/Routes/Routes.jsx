@@ -9,6 +9,7 @@ import SingleFoodDetails from '../pages/SingleFoodDetails/SingleFoodDetails.jsx'
 import Gallery from '../pages/Gallery/Gallery.jsx';
 import MyFoodItemPage from '../pages/MyFoodItemPage/MyFoodItemPage.jsx';
 import AddFoodItemPage from '../pages/AddFoodItemPage/AddFoodItemPage.jsx';
+import FoodPurchasePage from '../pages/FoodPurchasePage/FoodPurchasePage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
         {
           path:"/add-food-item",
           element:<AddFoodItemPage></AddFoodItemPage>
+        },
+        {
+          path:'/food-purchase',
+          element:<FoodPurchasePage></FoodPurchasePage>
         }
     ]
   }
