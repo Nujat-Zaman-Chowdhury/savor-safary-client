@@ -66,7 +66,7 @@ const Login = () => {
 		<div className="space-y-2">
             <input type="submit" value="Login" className="w-full px-8 py-3 font-semibold rounded-md bg-green-500  hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400" />
 			<p className="px-6 text-sm text-center text-gray-400">Don't have an account yet?
-				<Link to="/login" rel="noopener noreferrer" className="hover:underline text-green-400 font-medium">Sign up</Link>.
+				<Link to="/sign-up" rel="noopener noreferrer" className="hover:underline text-green-400 font-medium">Sign up</Link>.
 			</p>
 		</div>
 

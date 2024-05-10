@@ -7,9 +7,9 @@ const Navbar = () => {
     const {user,logOut} = useAuth()
 
     return (
-        <div className="navbar bg-base">
-        <Link to="/" className="flex-1">
-            <span className="btn border-0 shadow-none bg-gradient-to-r from-[#223822] to-[#98FB98] text-transparent bg-clip-text md:text-3xl font-bold">SavorSafari</span>
+        <div className="navbar flex flex-col items-center md:flex-row z-40 bg-transparent">
+        <Link to="/" className="flex-1 ">
+            <span className="btn border-0 shadow-none bg-gradient-to-r from-[#223822] to-[#98FB98] text-transparent bg-clip-text text-xl md:text-3xl font-bold p-0 md:p-4">SavorSafari</span>
         </Link>
         <div>
          
@@ -17,7 +17,7 @@ const Navbar = () => {
   </div>
   <div className="flex-none">
     <div className="dropdown dropdown-end">
-       <div className="flex gap-8 items-center font-outfit text-xl">
+       <div className="flex gap-1  md:gap-8 items-center font-outfit md:text-xl">
        <Link className="relative group">Home
        <span className="absolute -bottom-1 left-0 w-0 h-1 bg-gradient-to-r from-[#223822] to-[#98FB98] transition-all group-hover:w-full"></span>
        </Link>
@@ -29,12 +29,12 @@ const Navbar = () => {
        </Link>
        {
         user?
-        <Link onClick={logOut} to="/login" className="mr-4 relative rounded px-5 py-2.5 overflow-hidden group bg-green-500  hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
-        <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+        <Link onClick={logOut} to="/login" className="md:mr-4 relative rounded px-5 py-2.5 overflow-hidden group bg-green-500  hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
+        <span className="absolute right-0 md:w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
         <span className="relative">Logout</span>
         </Link>:
         <Link  to="/login" className="mr-4 relative rounded px-5 py-2.5 overflow-hidden group bg-green-500  hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
-        <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+        <span className="absolute right-0 md:w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
         <span className="relative">Login</span>
         </Link>
        }

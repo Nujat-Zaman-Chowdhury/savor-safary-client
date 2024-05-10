@@ -38,6 +38,9 @@ const SignUp = () => {
 
     return (
         <div className="flex justify-center items-center">
+			<div className="bg-[url('https://i.ibb.co/thHRrHj/signin-image.jpg')] bg-no-repeat w-96 h-96">
+
+			</div>
             <div>
             <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-base text-gray-100">
 	<div className="mb-8 text-center">
