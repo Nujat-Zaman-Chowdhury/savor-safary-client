@@ -35,10 +35,10 @@ const AllFoods = () => {
 
             {/* card */}
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 container mx-auto px-7 bg-black">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 container mx-auto px-7">
             {
                 foods.map(food=>(
-                    <div key={food._id} className="w-full max-w-sm overflow-hidden  rounded-lg shadow-md shadow-zinc-50 bg-grey-100">
+                    <div key={food._id} className="w-full max-w-sm overflow-hidden  bg-black  rounded-lg shadow-md shadow-zinc-50 bg-grey-100">
             <img className="h-96 object-cover object-center" src={food.food_image} alt="avatar"/>
 
     <div className="flex px-6 py-3 bg-white">
@@ -58,7 +58,7 @@ const AllFoods = () => {
             <h1 className="text-sm">Price: $ {food.price}</h1>
             <h1 className="text-sm">Quantity: {food.quantity}</h1>
         </div>
-        <div className="h-[130px]">
+        <div className="h-[150px]">
             <h4 className="font-poppins mt-4 text-white">Description</h4>
             <span>{food.description}</span>
         </div>
