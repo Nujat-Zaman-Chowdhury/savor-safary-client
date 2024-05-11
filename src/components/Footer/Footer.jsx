@@ -14,7 +14,7 @@ const Footer = () => {
    
           <div className="px-4 my-4 w-full sm:w-auto font-outfit">
             <div>
-              <h2 className="inline-block text-xl pb-4 mb-4 border-b-4 border-green-600">Company</h2>
+              <h2 className="inline-block text-xl pb-4 mb-4 border-b-4 border-green-600">Quick Link</h2>
             </div>
             <ul className="leading-8">
               <li><a href="#" className="hover:text-blue-400">About Us</a></li>
