@@ -35,7 +35,7 @@ const AllFoods = () => {
 
             {/* card */}
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 container mx-auto px-7">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 container mx-auto px-7 bg-black">
             {
                 foods.map(food=>(
                     <div key={food._id} className="w-full max-w-sm overflow-hidden  rounded-lg shadow-md shadow-zinc-50 bg-grey-100">
@@ -58,12 +58,15 @@ const AllFoods = () => {
             <h1 className="text-sm">Price: $ {food.price}</h1>
             <h1 className="text-sm">Quantity: {food.quantity}</h1>
         </div>
-        <div>
+        <div className="h-[130px]">
             <h4 className="font-poppins mt-4 text-white">Description</h4>
             <span>{food.description}</span>
         </div>
 
-        <Link to={`/food-details/${food._id}`} className="my-4 relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-bold text-white rounded-md shadow-2xl group">
+
+        </div>
+       <div className="flex items-end pl-5">
+       <Link to={`/food-details/${food._id}`} className="my-4 relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-bold text-white rounded-md shadow-2xl group">
         <span className="absolute inset-0 w-full h-full transition duration-300 ease-out opacity-0 bg-gradient-to-br from-green-600 via-green-700 to-green-400 group-hover:opacity-100"></span>
         
         <span className="absolute top-0 left-0 w-full bg-gradient-to-b from-white to-transparent opacity-5 h-1/3"></span>
@@ -77,7 +80,7 @@ const AllFoods = () => {
         <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-56 group-hover:h-56 opacity-5"></span>
         <span className="relative">Details</span>
         </Link>
-        </div>
+       </div>
             </div>
                 ))
             }

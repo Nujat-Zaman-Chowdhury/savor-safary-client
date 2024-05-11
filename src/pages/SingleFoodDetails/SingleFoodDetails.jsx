@@ -13,11 +13,11 @@ const SingleFoodDetails = () => {
             <div className="bg-black/70 w-16 h-16 rounded-full flex items-center justify-center p-3">
                 <img src="/food.svg" alt="" className="w-12 h-12" />
             </div>
-            <div className="">
-                <h1 className="text-2xl font-semibold text-green-500 mt-4">
-                    Food Name : {food_name}
+            <div className="font-outfit">
+                <h1 className="text-2xl text-white font-medium  mt-4">
+                    Food Name : <span className="text-blue-400">{food_name}</span>
                 </h1>
-                <p className="text-xl text-white mt-2 leading-relaxed">
+                <p className="text-base text-white mt-2 leading-relaxed font-poppins">
                     Category: <span className="text-emerald-400">{category}</span> 
                 </p>
             </div>
