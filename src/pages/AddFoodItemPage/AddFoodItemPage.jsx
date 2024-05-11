@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 
 
@@ -23,10 +24,13 @@ const AddFoodItemPage = () => {
             const food_origin= form.food_origin.value;
             const description = form.description.value;
 
-            console.log(name,email,food_name,food_image,category,quantity,price,food_origin,description);
-    
+            // console.log(name,email,food_name,food_image,category,quantity,price,food_origin,description);
+            const foodData = {
+                name,email,food_name,food_image,category,quantity,price,food_origin,description
+            }
+            
             try{
-                
+                const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/add-food-item`,foodData)
                 toast.success('Food Added Successfully')
                 
             }
@@ -71,6 +75,7 @@ const AddFoodItemPage = () => {
               >
                 <option value='Appetizers'>Appetizers</option>
                 <option value='Soups'>Soups</option>
+                <option value='Salad'>Salad</option>
                 <option value='Entrees'>Entrees</option>
                 <option value='Pizza'>Pizza</option>
                 <option value='Curry'>Curry</option>
