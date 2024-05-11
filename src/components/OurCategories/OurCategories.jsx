@@ -6,13 +6,23 @@ import soup from "../../assets/icons8-soup-60.png"
 import pizza from "../../assets/icons8-pizza-80.png"
 import salad from "../../assets/icons8-salad-50.png"
 import { Typewriter } from 'react-simple-typewriter'
+import { motion} from "framer-motion"
+import { fadeIn } from "../../animation";
+
 
 const OurCategories = () => {
+    
     return (
         <div className="md:px-10 bg-white p-10">
-            <div className="flex justify-between items-center mb-6">
-                <div className="text-2xl md:text-4xl font-bold font-outfit text-black">Our Categories 
-                <span className="ml-2">
+            <motion.div
+            variants={fadeIn("up",0.2)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{once: false, amount:0.2}}
+             className="flex justify-between items-center mb-6">
+                <div
+                className="text-2xl md:text-4xl font-bold font-outfit text-black">Our Categories 
+                <span  className="ml-2">
                 <Typewriter words={['Delicious Starters', 'Mouth-watering Appetizers', 'Tasty Beginnings', 'Savoury Small Plates']} loop={5} />
 
                 </span>
@@ -24,13 +34,19 @@ const OurCategories = () => {
                 See more
                 </span>
                 </Link>
-            </div>
+            </motion.div>
 
             <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
-            <div
+            <motion.div
+            variants={fadeIn("left",0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{once: false, amount:0.7}}
         className="group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 text-black hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10">
         <span className="absolute top-10 z-0 h-20 w-20 rounded-full bg-green-400 transition-all duration-300 group-hover:scale-[10]"></span>
-        <div className="relative z-10 mx-auto max-w-md">
+        <div
+        
+         className="relative z-10 mx-auto max-w-md">
             <span className="grid h-20 w-20 place-items-center rounded-full bg-green-400 transition-all duration-300 group-hover:bg-green-400">
                 <img src={appetizer} className="w-16 h-16" alt="" />
             </span>
@@ -38,8 +54,12 @@ const OurCategories = () => {
                 <p className="text-xl capitalize font-poppins">Appetizer</p>
             </div>
         </div>
-    </div>
-            <div
+    </motion.div>
+            <motion.div
+             variants={fadeIn("left",0.3)}
+             initial="hidden"
+             whileInView={"show"}
+             viewport={{once: false, amount:0.7}}
         className="group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 text-black hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10">
         <span className="absolute top-10 z-0 h-20 w-20 rounded-full bg-green-400 transition-all duration-300 group-hover:scale-[10]"></span>
         <div className="relative z-10 mx-auto max-w-md">
@@ -50,8 +70,12 @@ const OurCategories = () => {
                 <p className="text-xl capitalize font-poppins">Soup</p>
             </div>
         </div>
-    </div>
-            <div
+    </motion.div>
+            <motion.div
+             variants={fadeIn("left",0.3)}
+             initial="hidden"
+             whileInView={"show"}
+             viewport={{once: false, amount:0.7}}
         className="group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 text-black hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10">
         <span className="absolute top-10 z-0 h-20 w-20 rounded-full bg-green-400 transition-all duration-300 group-hover:scale-[10]"></span>
         <div className="relative z-10 mx-auto max-w-md">
@@ -62,9 +86,13 @@ const OurCategories = () => {
                 <p className="text-xl capitalize font-poppins">salad</p>
             </div>
         </div>
-    </div>
+    </motion.div>
             
-            <div
+            <motion.div
+             variants={fadeIn("left",0.3)}
+             initial="hidden"
+             whileInView={"show"}
+             viewport={{once: false, amount:0.7}}
         className="group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 text-black hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10">
         <span className="absolute top-10 z-0 h-20 w-20 rounded-full bg-green-400 transition-all duration-300 group-hover:scale-[10]"></span>
         <div className="relative z-10 mx-auto max-w-md">
@@ -75,8 +103,12 @@ const OurCategories = () => {
                 <p className="text-xl capitalize font-poppins">desert</p>
             </div>
         </div>
-    </div>
-            <div
+    </motion.div>
+            <motion.div
+             variants={fadeIn("left",0.3)}
+             initial="hidden"
+             whileInView={"show"}
+             viewport={{once: false, amount:0.7}}
         className="group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 text-black hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10">
         <span className="absolute top-10 z-0 h-20 w-20 rounded-full bg-green-400 transition-all duration-300 group-hover:scale-[10]"></span>
         <div className="relative z-10 mx-auto max-w-md">
@@ -87,9 +119,13 @@ const OurCategories = () => {
                 <p className="text-xl capitalize font-poppins">pizza</p>
             </div>
         </div>
-    </div>
+    </motion.div>
             
-            <div
+            <motion.div
+             variants={fadeIn("left",0.3)}
+             initial="hidden"
+             whileInView={"show"}
+             viewport={{once: false, amount:0.7}}
         className="group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 text-black hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10">
         <span className="absolute top-10 z-0 h-20 w-20 rounded-full bg-green-400 transition-all duration-300 group-hover:scale-[10]"></span>
         <div className="relative z-10 mx-auto max-w-md">
@@ -100,7 +136,7 @@ const OurCategories = () => {
                 <p className="text-xl capitalize font-poppins">sushi</p>
             </div>
         </div>
-    </div>
+    </motion.div>
             
             </div>
         </div>

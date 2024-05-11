@@ -1,5 +1,6 @@
 import call from "../../assets/6.png"
-
+import { motion} from "framer-motion"
+import { fadeIn } from "../../animation";
 const OpeningHour = () => {
     return (
         <div className="bg-black/60 relative bg-[url('https://i.ibb.co/S3z3PVR/7.png')] bg-cover bg-no-repeat bg-center">
@@ -7,8 +8,20 @@ const OpeningHour = () => {
             <div className="z-30">
                 
                 <div className="w-full my-10  relative">
-                    <img src="https://i.ibb.co/YcxCJzD/opening.jpg" className="lg:w-2/3 h-[400px] object-cover  rounded-lg shadow-2xl" />
-                    <div className="absolute w-1/3 top-10 right-40 bg-black p-5 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-100">
+                    <motion.div
+                    variants={fadeIn("right",0.3)}
+                    initial="hidden"
+                    whileInView={"show"}
+                    viewport={{once: false, amount:0.6}}
+                    className="lg:w-2/3 h-[400px]">
+                    <img src="https://i.ibb.co/YcxCJzD/opening.jpg" className=" object-cover w-full h-full  rounded-lg shadow-2xl" />
+                    </motion.div>
+                    <motion.div
+                    variants={fadeIn("left",0.2)}
+                    initial="hidden"
+                    whileInView={"show"}
+                    viewport={{once: false, amount:0.2}}
+                    className="absolute w-1/3 top-10 right-40 bg-black p-5 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-100">
                         <h4 className="text-green-300 md:text-3xl font-outfit font-bold mb-4" >Our Opening Hours</h4>
                         <p className="mb-2 font-poppins text-gree-100">Welcome to a haven where time stands still, and each moment is an invitation to embrace the beauty of the present.</p>
                         <ul className="list-none text-white font-outfit font-semibold">
@@ -22,7 +35,7 @@ const OpeningHour = () => {
                             </div>
                             <p className="text-xl text-white font-outfit">+012345563</p>
                         </div>
-                    </div>
+                    </motion.div>
                     
                 </div>
 
