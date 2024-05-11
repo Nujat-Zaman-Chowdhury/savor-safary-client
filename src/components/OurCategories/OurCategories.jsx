@@ -12,7 +12,7 @@ const OurCategories = () => {
         <div className="md:px-10 bg-white p-10">
             <div className="flex justify-between items-center mb-6">
                 <div className="text-2xl md:text-4xl font-bold font-outfit text-black">Our Categories 
-                <span className="ml-2 font-poppins">
+                <span className="ml-2">
                 <Typewriter words={['Delicious Starters', 'Mouth-watering Appetizers', 'Tasty Beginnings', 'Savoury Small Plates']} loop={5} />
 
                 </span>

@@ -8,9 +8,12 @@ const Navbar = () => {
 
     return (
         <div className="navbar flex flex-col items-center md:flex-row z-40 bg-transparent shadow-sm shadow-slate-200">
-        <Link to="/" className="flex-1">
-            <span className="btn border-0 shadow-none bg-gradient-to-r from-[#223822] to-[#98FB98] text-transparent bg-clip-text text-xl md:text-3xl font-bold p-0 lg:p-4">SavorSafari</span>
+
+          <img src="https://i.ibb.co/Qn7vSD0/tteok.png" className="w-8 h-8" alt="" />
+          <Link to="/" className="flex-1">
+            <span className="btn border-0 shadow-none bg-gradient-to-r from-[#223822] to-[#98FB98] text-transparent bg-clip-text text-xl md:text-3xl font-bold">SavorSafari</span>
         </Link>
+
         <div>
          
           
