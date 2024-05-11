@@ -9,7 +9,15 @@ export default {
       fontFamily:{
         outfit : ["Outfit", 'sans-serif'],
         poppins: ["Poppins", "sans-serif"]
-      }
+      },
+      animation: {
+        shine: "shine 1s",
+      },
+      keyframes: {
+        shine: {
+          "100%": { left: "125%" },
+        },
+      },
     },
   },
   plugins: [
