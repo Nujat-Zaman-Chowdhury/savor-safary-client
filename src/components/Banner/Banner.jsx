@@ -36,8 +36,8 @@ const Banner = () => {
     };
 
     return (
-        <div className=''>
-            <div className="slider ">
+        <div className='w-full'>
+            <div className="slider">
                 <div className="list">
                     <div className="item">
                         <img src={slider1} alt=""/>
@@ -57,7 +57,7 @@ const Banner = () => {
                         <div className="content">
                             <div className="title font-poppins md:leading-relaxed md:text-4xl">Discover Delightful Gastronomic Escapes at <span className='bg-gradient-to-r from-[#228f22] to-[#9ee79e] text-transparent bg-clip-text md:text-4xl font-bold'>SavorSafari</span></div>
                             
-                            <div className="w-[500px] font-outfit leading-normal my-6 opacity-90 md:text-xl">
+                            <div className="md:w-[500px] font-outfit leading-normal my-6 opacity-90 md:text-xl">
                             With each bite, you'll traverse landscapes of taste, texture, and aroma, guided by our expert chefs who are passionate about delivering excellence. 
                             </div>
                             <Link to="/all-foods">
@@ -70,7 +70,7 @@ const Banner = () => {
                         <div className="content">
                             <div className="title font-poppins md:leading-relaxed md:text-4xl">At <span className='bg-gradient-to-r from-[#228f22] to-[#9ee79e] text-transparent bg-clip-text md:text-4xl font-bold'>SavorSafari,</span>A Gastronomic Oasis of Delight</div>
                             
-                            <div className="w-[500px] font-outfit leading-normal my-6 opacity-90 md:text-xl">
+                            <div className="md:w-[500px] font-outfit leading-normal my-6 opacity-90 md:text-xl">
                             Our restaurant is a celebration of culinary artistry, where every dish tells a story of passion and dedication.Join us at SavorSafari and let your palate be swept away on a flavorful safari of delights.
                             </div>
                             <Link to="/all-foods">
@@ -96,7 +96,7 @@ const Banner = () => {
                 
             </div>
 
-            <div className="nextPrevArrows relative">
+            <div className="nextPrevArrows relative mb-10">
                 <button className="prev" onClick={() => moveSlider('prev')}> <IoIosArrowBack /> </button>
                 <button className="next" onClick={() => moveSlider('next')}> <IoIosArrowForward /> </button>
             </div>

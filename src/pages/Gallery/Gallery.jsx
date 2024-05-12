@@ -1,82 +1,154 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { useEffect, useState } from "react";
 
 
 const Gallery = () => {
+    const {user} = useAuth();
+    const navigate = useNavigate();
+    const [galleries,setGalleries] = useState([]);
+
+    const handleOpenModel = ()=>{
+        if(user){
+            document.getElementById('my_modal_1').showModal();
+        }
+        else navigate('/login')
+    }
+
+    const handleSubmit =async e =>{
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const photo = form.photo.value;
+        const feedback = form.feedback.value;
+        console.log(name,photo,feedback)
+        const galleryData = {
+            name,
+            photo,
+            feedback
+        }
+
+
+        try{
+            
+            const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/galleries`,galleryData)
+            
+            if(data.insertedId){
+                toast.success('Added Successfully')
+            }
+            }
+            
+            catch(err){
+                toast.err(err.message)
+            }
+    }
+
+    const handleClose = (e)=>{
+        e.preventDefault();
+        document.getElementById('my_modal_1').close();
+    }
+
+    
+
+    useEffect(()=>{
+        const getData = async()=>{
+            const {data} = await axios(`${import.meta.env.VITE_API_URL}/galleries`)
+
+            setGalleries(data);
+        }
+        getData();
+    })
     return (
-        <div>
+        <div className="">
             <h3 className="text-green-300 font-bold mb-5 text-xl md:text-3xl text-center pt-5">Explore Our All Food Gallery</h3>
             <div className="text-center mt-6 text-white font-bold font-poppins">
                 <Link to="/">Home</Link> | <span className="bg-gradient-to-r from-[#223822] to-[#98FB98] text-transparent bg-clip-text">Gallery</span>
             </div>
-
-            <div className="">
-                {/* gallery */}
-            <div className="container mx-auto md:py-12 lg:px-20 md:px-6 py-9 px-4 shadow-md">
-            <div className="text-center">
-                <h2
-                className="font-semibold lg:text-4xl text-3xl lg:leading-9 md:leading-7 leading-9 text-gray-800 md:w-full w-9/12 mx-auto">
-                Simple Image Hove</h2>
+            {/* Open the modal using document.getElementById('ID').showModal() method */}
+            
+            {/* add gallery */}
+            <div className="flex justify-center my-4">
+            <button className="btn text-center bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100 text-green-500" onClick={handleOpenModel}>Add photo in our gallery</button>
             </div>
-            <div className="mt-10 max-w-sm mx-auto shadow-md shadow-stone-300">
-                <div className="relative group">
-                <img
-                    src="https://cdn.pixabay.com/photo/2021/02/04/12/47/food-5981232_640.jpg"
-                    alt="Photo by Sébastien Goldberg on Unsplash" className="w-full  h-[500px] rounded shadow-xl hover:shadow-2xl object-cover object-center" />
-                <div
-                    className="flex justify-center items-center opacity-0 bg-gradient-to-t from-gray-800 via-gray-800 to-opacity-30 group-hover:opacity-50 absolute top-0 left-0 h-full w-full">
-                </div>
-                <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center opacity-0 hover:opacity-100">
-                    <div className="flex-row text-center space-y-4">
-                    <h1 className="text-gray-50 font-bold text-lg">User Name</h1>
-                    <p className="text-gray-200 font-medium text-sm">FeedBack</p>
-                    {/* Open the modal using document.getElementById('ID').showModal() method */}
-                    <div>
-    <button className="btn  text-green-500" onClick={() => document.getElementById('my_modal_1').showModal()}>Add</button>
-    <dialog id="my_modal_1" className="modal">
-        <div className="modal-box bg-transparent p-0">
            
-            <div className="">
-            <form className="max-w-md mx-auto  p-6 bg-black border rounded-lg shadow-lg text-white">
-            <h3 className="font-bold text-lg">Submit Your Experience</h3>
-            <p className="py-4">Press ESC key or click the button below to close</p>
-                    <div className="mb-4">
-                        <label className="block bg-gradient-to-r from-[#223822] to-[#98FB98] text-transparent bg-clip-text font-bold mb-2 " >
-                    Name:
-                    </label>
-                        <input className="shadow bg-white appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Enter your name"/>
-                    </div>
-                    <div className="mb-4">
-                        <label className="block bg-gradient-to-r from-[#223822] to-[#98FB98] text-transparent bg-clip-text font-bold mb-2" >
-                    Photo URL:
-                    </label>
-                        <input className="shadow appearance-none bg-white border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="photo" placeholder="Enter your email"/>
-                    </div>
-                    <div className="mb-4">
-                        <label className="block bg-gradient-to-r from-[#223822] to-[#98FB98] text-transparent bg-clip-text font-bold mb-2">
-                    Feedback:
-                    </label>
-                        <textarea className="bg-white shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows="5" placeholder="Enter your feedback"></textarea>
-                    </div>
-                <div className="flex justify-end">
-                        <button type="submit" className="btn btn-primary">Submit</button>
-                        <button className="btn ml-2" onClick={() => document.getElementById('my_modal_1').close()}>Close</button>
-                        </div>
-                </form>
-                                
-                    
-            </div>
-        </div>
-    </dialog>
-</div>
-
-                    </div>
-                    
-                </div>
+                <dialog id="my_modal_1" className="modal">
+                <div className="modal-box bg-transparent p-0">
                 
+                    <div className="">
+                    <form onSubmit={handleSubmit} className="max-w-md mx-auto  p-6 bg-black/90 border rounded-lg shadow-lg text-white">
+                    <h3 className="font-bold text-lg">Submit Your Experience</h3>
+                    <p className="py-4">Press ESC key or click the button below to close</p>
+                            <div className="mb-4">
+                                <label className="block bg-gradient-to-r from-[#223822] to-[#98FB98] text-transparent bg-clip-text font-bold mb-2 " >
+                            User Name:
+                            </label>
+                                <input name="name" className="shadow bg-white appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text"  defaultValue={user?.displayName} readOnly/>
+                            </div>
+                            <div className="mb-4">
+                                <label className="block bg-gradient-to-r from-[#223822] to-[#98FB98] text-transparent bg-clip-text font-bold mb-2" >
+                            Photo URL:
+                            </label>
+                                <input name="photo" className="shadow appearance-none bg-white border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="photo" placeholder="Add photo"/>
+                            </div>
+                            <div className="mb-4">
+                                <label className="block bg-gradient-to-r from-[#223822] to-[#98FB98] text-transparent bg-clip-text font-bold mb-2">
+                                Feedback:
+                            </label>
+                                <textarea name="feedback" className="bg-white shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows="5" placeholder="Enter your feedback"></textarea>
+                            </div>
+                                <div className="flex justify-end">
+                                <input type="submit" value="Add" className="btn bg-green-400 text-white"/>
+                                </div>
+                                <button className="btn bg-white text-green-400 ml-2" onClick={handleClose}>Close</button>
+                        </form>
+                                        
+                            
+                    </div>
                 </div>
-  </div>
+            </dialog>
+            
+
+            {/* gallery */}
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-6 px-3">
+                
+            {
+                galleries.map(gallery=>
+
+                    <div key={gallery._id} className='flex items-center justify-center bg-gradient-to-br'>
+                    <div
+                        className="my-5 overflow-hidden  aspect-video cursor-pointer rounded-xl relative group h-[380px] "
+                    >
+                        <div
+                            className="rounded-xl z-50 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out cursor-pointer absolute from-black/80 to-transparent bg-gradient-to-t inset-x-0 -bottom-2 pt-30 text-white flex items-end"
+                        >
+                            <div>
+                                <div
+                                    className="transform-gpu  p-4 space-y-3 text-xl group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 pb-10 transform transition duration-300 ease-in-out"
+                                >
+                                    <div className="font-bold">{gallery.name}</div>
+
+                                    <div className="opacity-60 text-sm ">
+                                        {gallery.feedback}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <img
+                            alt=""
+                            className="object-cover object-center w-full aspect-square group-hover:scale-110 transition duration-300 ease-in-out"
+                            src={gallery.photo}/>
+                    </div>
             </div>
+                    
+                )
+            }
             </div>
+
+
+            
         </div>
     );
 };

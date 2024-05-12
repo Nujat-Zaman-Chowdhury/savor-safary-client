@@ -15,15 +15,15 @@ const OurCategories = () => {
     return (
         <div className="md:px-10 bg-white p-10">
             <motion.div
-            variants={fadeIn("up",0.2)}
+            variants={fadeIn("down",0.2)}
             initial="hidden"
             whileInView={"show"}
             viewport={{once: false, amount:0.2}}
-             className="flex justify-between items-center mb-6">
+             className="flex flex-col md:flex-row gap-4 md:gap-0 justify-center md:justify-between items-center mb-6">
                 <div
                 className="text-2xl md:text-4xl font-bold font-outfit text-black">Our Categories 
-                <span  className="ml-2">
-                <Typewriter words={['Delicious Starters', 'Mouth-watering Appetizers', 'Tasty Beginnings', 'Savoury Small Plates']} loop={5} />
+                 <span  className="ml-2">
+                <md:Typewriter className="" md:words={['Delicious Starters', 'Mouth-watering Appetizers', 'Tasty Beginnings', 'Savoury Small Plates']} loop={5} />
 
                 </span>
                 </div>
@@ -36,7 +36,7 @@ const OurCategories = () => {
                 </Link>
             </motion.div>
 
-            <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3">
             <motion.div
             variants={fadeIn("left",0.3)}
             initial="hidden"

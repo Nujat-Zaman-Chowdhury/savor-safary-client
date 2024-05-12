@@ -9,11 +9,12 @@ const OpeningHour = () => {
                 
                 <div className="w-full my-10  relative">
                     <motion.div
+                    
                     variants={fadeIn("right",0.3)}
                     initial="hidden"
                     whileInView={"show"}
                     viewport={{once: false, amount:0.6}}
-                    className="lg:w-2/3 h-[400px]">
+                    className="lg:w-2/3 md:h-[400px]">
                     <img src="https://i.ibb.co/YcxCJzD/opening.jpg" className=" object-cover w-full h-full  rounded-lg shadow-2xl" />
                     </motion.div>
                     <motion.div
@@ -21,7 +22,7 @@ const OpeningHour = () => {
                     initial="hidden"
                     whileInView={"show"}
                     viewport={{once: false, amount:0.2}}
-                    className="absolute w-1/3 top-10 right-40 bg-black p-5 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-100">
+                    className="mt-3 lg:mt-0 lg:absolute lg:w-1/3 lg:top-10 lg:right-40 bg-black p-5 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-100">
                         <h4 className="text-green-300 md:text-3xl font-outfit font-bold mb-4" >Our Opening Hours</h4>
                         <p className="mb-2 font-poppins text-gree-100">Welcome to a haven where time stands still, and each moment is an invitation to embrace the beauty of the present.</p>
                         <ul className="list-none text-white font-outfit font-semibold">

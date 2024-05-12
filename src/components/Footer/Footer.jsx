@@ -5,14 +5,14 @@ const Footer = () => {
     <div className="bg-black/60 py-4 text-gray-400">
       <div className="container px-4 mx-auto">
         <div className="-mx-4 flex flex-wrap justify-between">
-          <div className="px-4 my-4 w-full xl:w-1/5">
+          <div className="px-4 my-4 w-full xl:w-1/5 flex flex-col justify-center md:justify-start">
             <img src="https://i.ibb.co/Qn7vSD0/tteok.png" className="w-24 h-24 mx-auto" alt="" />
             <span className="btn border-0 shadow-none bg-gradient-to-r from-[#223822] to-[#98FB98] text-transparent bg-clip-text text-xl md:text-3xl font-bold p-0 lg:p-4 mx-auto">SavorSafari
             </span>
 
           </div>
    
-          <div className="px-4 my-4 w-full sm:w-auto font-outfit">
+          <div className="px-4 my-4 w-full sm:w-auto font-outfit text-center md:text-left">
             <div>
               <h2 className="inline-block text-xl pb-4 mb-4 border-b-4 border-green-600">Quick Link</h2>
             </div>
@@ -23,7 +23,7 @@ const Footer = () => {
               <li><a href="#" className="hover:text-blue-400">Contact Us</a></li>
             </ul>
           </div>
-          <div className="px-4 my-4 w-full sm:w-auto font-outfit">
+          <div className="px-4 my-4 w-full sm:w-auto font-outfit text-center md:text-left">
             <div>
               <h2 className="inline-block text-xl pb-4 mb-4 border-b-4 border-green-600">Address</h2>
             </div>
@@ -32,9 +32,9 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="px-4 my-4 w-full sm:w-auto xl:w-1/5 font-outfit">
+          <div className="px-4 my-4 w-full sm:w-auto xl:w-1/5 font-outfit text-center md:text-left">
             <div>
-              <h2 className="inline-block text-xl pb-4 mb-4 border-b-4 border-green-600">Connect With Us</h2>
+              <h2 className="inline-block text-xl pb-4 mb-4 border-b-4 border-green-600 ">Connect With Us</h2>
             </div>
             <a href="#" className="inline-flex items-center justify-center h-8 w-8 border border-gray-100 rounded-full mr-1 hover:text-blue-400 hover:border-blue-400">
               <svg className="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
