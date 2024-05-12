@@ -5,15 +5,43 @@ import { Link } from "react-router-dom";
 
 const AllFoods = () => {
     const [foods,setFoods] = useState([]);
+    const [count,setCount]=useState(0)
+    const [itemsPerPage,setItemsPerPage]=useState(4);
+    const [currentPage,setCurrentPage]=useState(1);
+   
+    
+    // console.log(pages);
+    const numberOfPages = Math.ceil(count/itemsPerPage);
 
     useEffect(()=>{
         const getData = async()=>{
-            const {data} = await axios(`${import.meta.env.VITE_API_URL}/foods`)
+            const {data} = await axios(`${import.meta.env.VITE_API_URL}/all-foods?page=${currentPage}&size=${itemsPerPage}`)
 
-            setFoods(data);
+            setFoods(data); 
         }
         getData();
-    })
+    },[currentPage,itemsPerPage])
+
+    // get count
+    useEffect(()=>{
+        const getCount = async()=>{
+            const {data} = await axios(`${import.meta.env.VITE_API_URL}/foods-count`)
+            setCount(data.count)
+        }
+
+        getCount();
+    },[])
+    console.log(count);
+
+
+    const pages = [...Array(numberOfPages).keys()].map(element=>element+1)
+
+    const handlePaginationButton = (value)=>{
+        console.log(value);
+        setCurrentPage(value);
+    }
+
+
     return (
         <div className="w-full h-full font-outfit bg-[url('https://i.ibb.co/8zxX0XY/bg-2.jpg')] bg-cover bg-center bg-no-repeat p-5">
             <h3 className="text-green-300 font-bold mb-5 text-xl md:text-3xl text-center pt-5">Explore Our All Food Items</h3>
@@ -58,7 +86,7 @@ const AllFoods = () => {
             <h1 className="text-sm">Price: $ {food.price}</h1>
             <h1 className="text-sm">Quantity: {food.quantity}</h1>
         </div>
-        <div className="h-[150px]">
+        <div className="h-[130px]">
             <h4 className="font-poppins mt-4 text-white">Description</h4>
             <span>{food.description}</span>
         </div>
@@ -84,6 +112,32 @@ const AllFoods = () => {
             </div>
                 ))
             }
+            </div>
+
+            
+
+            {/* pagination */}
+            <div className="my-12 flex justify-center items-center">
+            
+            {/* prev button */}
+            <button
+            disabled={currentPage === 1}
+            onClick={()=>handlePaginationButton(currentPage-1)}
+            className="btn mr-2">Prev</button>
+
+            {
+                pages.map(pageNum=>(
+                    <button
+                    onClick={()=>handlePaginationButton(pageNum)}
+                    className="btn mx-1" key={{pageNum}}>{pageNum}</button>
+                ))
+            }
+
+            {/* next button */}
+            <button
+            disabled={currentPage === 1}
+            onClick={()=>handlePaginationButton(currentPage-1)}
+            className="btn ml-2">next</button>
             </div>
 
         </div>

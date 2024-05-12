@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 const MyPurchasedPage = () => {
     const {user}= useAuth();
     const [foods,setFoods]= useState([]);
+    
+
     useEffect(()=>{
         getData();
     },[user])
