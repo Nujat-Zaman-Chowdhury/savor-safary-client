@@ -26,7 +26,8 @@ const AddFoodItemPage = () => {
 
             // console.log(name,email,food_name,food_image,category,quantity,price,food_origin,description);
             const foodData = {
-                name,email,food_name,food_image,category,quantity,price,food_origin,description
+                name,email,food_name,food_image,category,quantity,price,food_origin,description,
+                
             }
             
             try{

@@ -1,6 +1,23 @@
+import { useEffect, useState } from "react";
+import useAuth from "../../hooks/useAuth";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 
 const MyFoodItemPage = () => {
+    const {user} = useAuth();
+    const [foods,setFoods] = useState([]);
+
+    useEffect(()=>{
+        getData();
+    },[user])
+
+    const getData = async()=>{
+        const {data} = await axios(`${import.meta.env.VITE_API_URL}/foods/${user?.email}`)
+        console.log(data);
+        setFoods(data);
+    } 
+
     return (
         <table className="divide-y divide-gray-200 overflow-x-auto my-6 container mx-auto">
     <thead className="bg-gray-50">
@@ -24,28 +41,32 @@ const MyFoodItemPage = () => {
         </tr>
     </thead>
     <tbody className="bg-white divide-y divide-gray-200">
-        <tr className="">
+        {
+            foods.map(food=>(
+            <tr key={food._id} className="">
             <td className="px-6 py-4 whitespace-nowrap">
-                <div className="flex-shrink-0 h-32 w-32">
-                        <img className="rounded-md" src="https://i.pravatar.cc/150?img=1" alt=""/>
+                <div className="flex-shrink-0">
+                        <img className="rounded-md w-40 h-32 object-cover object-center" src={food.food_image} alt=""/>
                 </div>
             </td>
             <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900">Regional Paradigm Technician</div>
+                <div className="text-sm text-gray-900">{food.food_name}</div>
             </td>
             <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900">Regional Paradigm Technician</div>
+                <div className="text-sm text-gray-900">{food.category}</div>
             </td>
             <td className="px-6 py-4 whitespace-nowrap">
                 <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                    Price
+                    {food.price}
                 </span>
             </td>
             
             <td className="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                <a href="#" className="text-indigo-600 hover:text-indigo-900">Update</a>
+                <Link to={`/update/${food._id}`} className="btn text-indigo-600 hover:text-indigo-900">Update</Link>
             </td>
         </tr>
+            ))
+        }
 
 
     </tbody>

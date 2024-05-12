@@ -20,6 +20,7 @@ const FoodPurchasePage = () => {
         const buying_date = startDate.toLocaleDateString();
         const quantity = parseFloat(form.quantity.value)
         const price = parseFloat(form.price.value)
+       
 
         // console.log(name,email,food_name,quantity,price,buying_date);
         const purchaseData = {
@@ -27,13 +28,15 @@ const FoodPurchasePage = () => {
                 name,
                 email,
             },
+           
             food_name,
             food_image,
             buying_date,
             quantity,
-            price
+            price,
+            purchase_count:0
         }
-        // console.log(purchaseData);
+        console.log(purchaseData);
 
         try{
             const {data} = axios.post(`${import.meta.env.VITE_API_URL}/purchase-food-items`,purchaseData)

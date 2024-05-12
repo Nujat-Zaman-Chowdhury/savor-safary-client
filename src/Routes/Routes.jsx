@@ -10,6 +10,8 @@ import Gallery from '../pages/Gallery/Gallery.jsx';
 import MyFoodItemPage from '../pages/MyFoodItemPage/MyFoodItemPage.jsx';
 import AddFoodItemPage from '../pages/AddFoodItemPage/AddFoodItemPage.jsx';
 import FoodPurchasePage from '../pages/FoodPurchasePage/FoodPurchasePage.jsx';
+import UpdatePage from '../pages/UpdatePage/UpdatePage.jsx';
+import MyPurchasedPage from '../pages/MyPurchasedPage/MyPurchasedPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -55,6 +57,15 @@ const router = createBrowserRouter([
           element:<FoodPurchasePage></FoodPurchasePage>,
           loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/food/${params.id}`)
 
+        },
+        {
+          path:'/update/:id',
+          element:<UpdatePage></UpdatePage>,
+          loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/food/${params.id}`)
+        },
+        {
+          path:'/my-ordered-items',
+          element:<MyPurchasedPage></MyPurchasedPage>
         }
     ]
   }

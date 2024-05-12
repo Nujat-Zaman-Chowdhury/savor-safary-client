@@ -8,7 +8,7 @@ const AllFoods = () => {
 
     useEffect(()=>{
         const getData = async()=>{
-            const {data} = await axios(`${import.meta.env.VITE_API_URL}/add-food-item`)
+            const {data} = await axios(`${import.meta.env.VITE_API_URL}/foods`)
 
             setFoods(data);
         }
