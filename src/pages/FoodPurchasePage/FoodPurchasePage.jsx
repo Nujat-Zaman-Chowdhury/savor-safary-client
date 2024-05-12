@@ -8,11 +8,14 @@ import axios from "axios";
 
 const FoodPurchasePage = () => {
     const food = useLoaderData();
-    const {_id,food_name,food_image,category,price,name,food_origin,description,quantity} = food;
+    console.log(food);
+    const {_id,food_name,food_image,category,price,name,food_origin,description,quantity,addBy} = food || {};
+    console.log(addBy);
     const {user} = useAuth();
     const [startDate, setStartDate] = useState(new Date());
     const handleSubmit = async(e)=>{
         e.preventDefault();
+        if(user?.email === addBy.email ) return toast.error('Action not permitted')
         const form = e.target;
         const name = user?.displayName;
         const email = user?.email;
@@ -21,7 +24,7 @@ const FoodPurchasePage = () => {
         const quantity = parseFloat(form.quantity.value)
         const price = parseFloat(form.price.value)
        
-
+        
         // console.log(name,email,food_name,quantity,price,buying_date);
         const purchaseData = {
             name,

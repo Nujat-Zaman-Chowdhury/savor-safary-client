@@ -19,7 +19,8 @@ const MyFoodItemPage = () => {
     } 
 
     return (
-        <table className="divide-y divide-gray-200 overflow-x-auto my-6 container mx-auto">
+        <div className="overflow-x-auto">
+            <table className="divide-y divide-gray-200 overflow-x-auto my-6 container mx-auto">
     <thead className="bg-gray-50">
         <tr>
             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -71,6 +72,7 @@ const MyFoodItemPage = () => {
 
     </tbody>
 </table>
+        </div>
     );
 };
 

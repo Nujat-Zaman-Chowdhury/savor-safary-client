@@ -26,12 +26,26 @@ const AddFoodItemPage = () => {
 
             // console.log(name,email,food_name,food_image,category,quantity,price,food_origin,description);
             const foodData = {
-                name,email,food_name,food_image,category,quantity,price,food_origin,description,
+                name,
+                email,
+                food_name,
+                food_image,
+                category,
+                quantity,
+                price,
+                food_origin,
+                description,
+                addBy:{
+                    email,
+                    name:user?.displayName,
+
+                },
+                
                 
             }
             
             try{
-                const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/add-food-item`,foodData)
+                const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/foods`,foodData)
                 toast.success('Food Added Successfully')
                 
             }

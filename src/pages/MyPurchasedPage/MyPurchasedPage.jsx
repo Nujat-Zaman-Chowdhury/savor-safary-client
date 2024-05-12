@@ -18,7 +18,8 @@ const MyPurchasedPage = () => {
         setFoods(data);
     } 
     return (
-        <table className="divide-y divide-gray-200 overflow-x-auto my-6 container mx-auto">
+        <div className="overflow-x-auto">
+            <table className="divide-y divide-gray-200 overflow-x-auto my-6 container mx-auto">
     <thead className="bg-gray-50">
         <tr>
             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -51,7 +52,7 @@ const MyPurchasedPage = () => {
             <tr key={food._id} className="">
             <td className="px-6 py-4 whitespace-nowrap">
                 <div className="flex-shrink-0">
-                        <img className="rounded-md w-40 h-32 object-cover object-center" src={food.food_image} alt=""/>
+                        <img className="rounded-md lg:w-40 lg:h-32 object-cover object-center" src={food.food_image} alt=""/>
                 </div>
             </td>
             <td className="px-6 py-4 whitespace-nowrap">
@@ -82,6 +83,7 @@ const MyPurchasedPage = () => {
 
     </tbody>
 </table>
+        </div>
     );
 };
 
