@@ -6,8 +6,12 @@ import { Link } from "react-router-dom";
 const AllFoods = () => {
     const [foods,setFoods] = useState([]);
     const [count,setCount]=useState(0)
-    const [itemsPerPage,setItemsPerPage]=useState(4);
+    const [itemsPerPage,setItemsPerPage]=useState(9);
     const [currentPage,setCurrentPage]=useState(1);
+
+    const [search,setSearch] = useState('')
+    const [searchText,setSearchText] = useState('')
+   
    
     
     // console.log(pages);
@@ -15,22 +19,22 @@ const AllFoods = () => {
 
     useEffect(()=>{
         const getData = async()=>{
-            const {data} = await axios(`${import.meta.env.VITE_API_URL}/all-foods?page=${currentPage}&size=${itemsPerPage}`)
+            const {data} = await axios(`${import.meta.env.VITE_API_URL}/all-foods?page=${currentPage}&size=${itemsPerPage}&search=${search}`)
 
             setFoods(data); 
         }
         getData();
-    },[currentPage,itemsPerPage])
+    },[currentPage,itemsPerPage,search])
 
     // get count
     useEffect(()=>{
         const getCount = async()=>{
-            const {data} = await axios(`${import.meta.env.VITE_API_URL}/foods-count`)
+            const {data} = await axios(`${import.meta.env.VITE_API_URL}/foods-count?search=${search}`)
             setCount(data.count)
         }
 
         getCount();
-    },[])
+    },[search])
     console.log(count);
 
 
@@ -39,6 +43,12 @@ const AllFoods = () => {
     const handlePaginationButton = (value)=>{
         console.log(value);
         setCurrentPage(value);
+    }
+
+    const handleSearch =(e)=>{
+        
+        e.preventDefault();
+        setSearch(searchText)
     }
 
 
@@ -52,9 +62,14 @@ const AllFoods = () => {
 
             {/* search box */}
             <div className="flex items-center pb-6 md:py-0 md:w-1/2 my-6 ml-10 font-outfit">
-                <form className="">
+                <form onSubmit={handleSearch} className="">
                     <div className="flex flex-col bg-black/70 p-1.5 overflow-hidden border rounded-lg dark:border-gray-600 lg:flex-row dark:focus-within:border-blue-300 focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
-                        <input className="px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none dark:bg-white dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent" type="text" name="email" placeholder="Enter Food Name" aria-label="Enter your email"/>
+                        <input className="px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none dark:bg-white dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent" type="text" 
+                        name="search"
+                        onChange={(e)=>setSearchText(e.target.value)}
+                        value={searchText}
+                         placeholder="Enter Food Name"
+                         aria-label='Enter Food Name'/>
 
                         <button className="font-poppins px-5 py-3 text-base font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gradient-to-r from-[#223822] to-[#98FB98] text-transparent bg-clip-text rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">Search</button>
                     </div>
@@ -67,7 +82,7 @@ const AllFoods = () => {
             {
                 foods.map(food=>(
                     <div key={food._id} className="w-full max-w-sm overflow-hidden  bg-black  rounded-lg shadow-md shadow-zinc-50 bg-grey-100">
-            <img className="h-96 object-cover object-center" src={food.food_image} alt="avatar"/>
+            <img className="h-[300px] object-cover object-center" src={food.food_image} alt="avatar"/>
 
     <div className="flex px-6 py-3 bg-white">
         
@@ -123,21 +138,22 @@ const AllFoods = () => {
             <button
             disabled={currentPage === 1}
             onClick={()=>handlePaginationButton(currentPage-1)}
-            className="btn mr-2">Prev</button>
+            className="px-4 py-2 mx-1 text-gray-700 disabled:text-gray-500 capitalize bg-white rounded-md disabled:cursor-not-allowed disabled:hover:bg-gray-200 disabled:hover:text-gray-500 hover:bg-green-500  hover:text-white">Prev</button>
 
             {
                 pages.map(pageNum=>(
                     <button
                     onClick={()=>handlePaginationButton(pageNum)}
-                    className="btn mx-1" key={{pageNum}}>{pageNum}</button>
+                    className={`hidden ${currentPage === pageNum? 'bg-green-500 text-white': ''} px-4 py-2 mx-1 transition-colors duration-300 transform  rounded-md sm:inline hover:bg-green-500  hover:text-white`} 
+                    key={{pageNum}}>{pageNum}</button>
                 ))
             }
 
             {/* next button */}
             <button
-            disabled={currentPage === 1}
-            onClick={()=>handlePaginationButton(currentPage-1)}
-            className="btn ml-2">next</button>
+            disabled={currentPage === numberOfPages}
+            onClick={()=>handlePaginationButton(currentPage+1)}
+            className="px-4 py-2 mx-1 text-gray-700 disabled:text-gray-500 capitalize bg-white rounded-md disabled:cursor-not-allowed disabled:hover:bg-gray-200 disabled:hover:text-gray-500 hover:bg-green-500  hover:text-white">next</button>
             </div>
 
         </div>
