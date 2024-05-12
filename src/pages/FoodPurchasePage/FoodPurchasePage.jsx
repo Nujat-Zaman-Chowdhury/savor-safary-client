@@ -24,11 +24,8 @@ const FoodPurchasePage = () => {
 
         // console.log(name,email,food_name,quantity,price,buying_date);
         const purchaseData = {
-            buyer:{
-                name,
-                email,
-            },
-           
+            name,
+            email,
             food_name,
             food_image,
             buying_date,
