@@ -47,26 +47,26 @@ const router = createBrowserRouter([
         },
         {
           path:'/my-food-items',
-          element:<MyFoodItemPage></MyFoodItemPage>
+          element:<PrivateRoute><MyFoodItemPage></MyFoodItemPage></PrivateRoute>
         },
         {
           path:"/add-food-item",
-          element:<AddFoodItemPage></AddFoodItemPage>
+          element:<PrivateRoute><AddFoodItemPage></AddFoodItemPage></PrivateRoute>
         },
         {
           path:'/food-purchase/:id',
-          element:<FoodPurchasePage></FoodPurchasePage>,
+          element:<PrivateRoute><FoodPurchasePage></FoodPurchasePage></PrivateRoute>,
           loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/food/${params.id}`)
 
         },
         {
           path:'/update/:id',
-          element:<UpdatePage></UpdatePage>,
+          element:<PrivateRoute><UpdatePage></UpdatePage></PrivateRoute>,
           loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/food/${params.id}`)
         },
         {
           path:'/my-ordered-items',
-          element:<MyPurchasedPage></MyPurchasedPage>
+          element:<PrivateRoute><MyPurchasedPage></MyPurchasedPage></PrivateRoute>
         }
     ]
   }

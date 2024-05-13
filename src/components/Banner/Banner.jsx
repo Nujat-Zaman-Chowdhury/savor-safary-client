@@ -41,7 +41,7 @@ const Banner = () => {
                 <div className="list">
                     <div className="item">
                         <img src={slider1} alt=""/>
-                        <div className="content">
+                        <div className="content w-full">
                             <div className="title font-poppins md:leading-relaxed md:text-4xl">At <span className='bg-gradient-to-r from-[#228f22] to-[#9ee79e] text-transparent bg-clip-text md:text-4xl font-bold'>SavorSafari</span>, we invite you to embark on a culinary journey unlike any other</div>
                             
                             <div className="md:w-[500px] font-outfit leading-normal my-6 opacity-90 md:text-xl">
@@ -54,7 +54,7 @@ const Banner = () => {
                     </div>
                     <div className="item">
                         <img src={slider2} alt=""/>
-                        <div className="content">
+                        <div className="content w-full">
                             <div className="title font-poppins md:leading-relaxed md:text-4xl">Discover Delightful Gastronomic Escapes at <span className='bg-gradient-to-r from-[#228f22] to-[#9ee79e] text-transparent bg-clip-text md:text-4xl font-bold'>SavorSafari</span></div>
                             
                             <div className="md:w-[500px] font-outfit leading-normal my-6 opacity-90 md:text-xl">
@@ -67,7 +67,7 @@ const Banner = () => {
                     </div>
                     <div className="item">
                         <img src={slider3} alt=""/>
-                        <div className="content">
+                        <div className="content w-full">
                             <div className="title font-poppins md:leading-relaxed md:text-4xl">At <span className='bg-gradient-to-r from-[#228f22] to-[#9ee79e] text-transparent bg-clip-text md:text-4xl font-bold'>SavorSafari,</span>A Gastronomic Oasis of Delight</div>
                             
                             <div className="md:w-[500px] font-outfit leading-normal my-6 opacity-90 md:text-xl">
@@ -78,11 +78,14 @@ const Banner = () => {
                             </Link>
                         </div>
                     </div>
-                    
+                    <div className="nextPrevArrows relative mb-10">
+                        <button className="prev" onClick={() => moveSlider('prev')}> <IoIosArrowBack /> </button>
+                        <button className="next" onClick={() => moveSlider('next')}> <IoIosArrowForward /> </button>
+                    </div>
                     
                 </div>
             </div>
-
+{/* 
             <div className="thumbnail">
                 <div className="item">
                     <img src={slider1} alt=""/>
@@ -94,12 +97,9 @@ const Banner = () => {
                     <img src={slider3} alt=""/>
                 </div>
                 
-            </div>
+            </div> */}
 
-            <div className="nextPrevArrows relative mb-10">
-                <button className="prev" onClick={() => moveSlider('prev')}> <IoIosArrowBack /> </button>
-                <button className="next" onClick={() => moveSlider('next')}> <IoIosArrowForward /> </button>
-            </div>
+            
         </div>
     );
 };

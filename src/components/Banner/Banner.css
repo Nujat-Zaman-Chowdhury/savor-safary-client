@@ -1,6 +1,6 @@
 .slider{
     width: 100%;
-    height: 100vh;
+    height:600px;
     overflow: hidden;
     position: relative;
 }
@@ -19,6 +19,7 @@
     position: absolute;
     top: 20%;
     width: 1140px;
+    height: 100%;
     max-width: 80%;
     left: 50%;
     transform: translateX(-50%);
@@ -90,10 +91,12 @@
 /* nextPrevArrows Section  */
 .nextPrevArrows{
     position: absolute;
-    top: 82%;
-    right: 52%;
+    /* top: 82%; */
+    bottom: 10%;
+    right: 5%;
     z-index: 100;
-    width: 300px;
+    /* width: 200px; */
+    
     max-width: 30%;
     display: flex;
     gap: 10px;
@@ -260,27 +263,11 @@
     .slider .list .item .title{
         font-size: 20px;
     }
-    .thumbnail{
-        display: none;
-    }
     .slider{
         height: 500px;
     }
-    .nextPrevArrows{
-       display: none;
-    }
+
 }
 
-@media screen and (min-width:768px) and (max-width: 1024px){
-    .thumbnail{
-        display: none;
-    }
-    .nextPrevArrows{
-        top:97%;
-        right:-11%;
-     }
-     .slider .list .item .content{
-        top:8%
-     }
-}
+
 

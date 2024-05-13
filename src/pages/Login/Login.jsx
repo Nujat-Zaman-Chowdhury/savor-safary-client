@@ -1,4 +1,4 @@
-//https://i.ibb.co/SND554L/login-img.jpg
+
 
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -8,7 +8,7 @@ import axios from "axios";
 import { HelmetProvider } from "react-helmet-async";
 import { Helmet } from "react-helmet";
 
-//https://i.ibb.co/thHRrHj/signin-image.jpg
+
 const Login = () => {
     const {signIn,signInWithGoogle,user,loading} = useAuth();
     const navigate = useNavigate();
@@ -59,7 +59,7 @@ const Login = () => {
 
     if(user || loading) return
     return (
-        <div className="flex justify-center items-center">
+        <div className="flex flex-col md:flex-row justify-center items-center">
           <HelmetProvider>
             <Helmet>
                 <meta charSet="utf-8" />
@@ -68,10 +68,10 @@ const Login = () => {
             </Helmet>
             </HelmetProvider>
             
-            <div>
+            <div className="">
             <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-base text-gray-100">
 	<div className="mb-8 text-center">
-		<h1 className="my-3 text-4xl font-bold text-[#121212]">Login In</h1>
+		<h1 className="my-3 text-4xl font-bold text-white">Login In</h1>
 		<p className="text-sm text-green-400 font-medium font-poppins">Login to access your account</p>
 	</div>
 	<form className="space-y-6" onSubmit={handleSubmit}>
@@ -90,7 +90,7 @@ const Login = () => {
 		<div className="space-y-2">
             <input type="submit" value="Login" className="w-full px-8 py-3 font-semibold rounded-md bg-green-500  hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400" />
 			<p className="px-6 text-sm text-center text-gray-400">Don't have an account yet?
-				<Link to="/sign-up" rel="noopener noreferrer" className="hover:underline text-green-400 font-medium">Sign up</Link>.
+				<Link to="/sign-up" rel="noopener noreferrer" className="hover:underline text-green-400 font-medium"> Sign up</Link>.
 			</p>
 		</div>
 
@@ -121,12 +121,9 @@ const Login = () => {
               </span>
             </div>
 	</form>
-</div>
+            </div>
             </div>
 
-            <div className="bg-[url('https://i.ibb.co/SND554L/login-img.jpg')] bg-no-repeat w-96 h-96">
-
-            </div>
         </div>
     );
 };

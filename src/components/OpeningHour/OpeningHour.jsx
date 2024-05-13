@@ -10,7 +10,7 @@ const OpeningHour = () => {
                 <div className="w-full my-10  relative">
                     <motion.div
                     
-                    variants={fadeIn("right",0.3)}
+                    variants={fadeIn("up",0.2)}
                     initial="hidden"
                     whileInView={"show"}
                     viewport={{once: false, amount:0.6}}
@@ -18,7 +18,7 @@ const OpeningHour = () => {
                     <img src="https://i.ibb.co/YcxCJzD/opening.jpg" className=" object-cover w-full h-full  rounded-lg shadow-2xl" />
                     </motion.div>
                     <motion.div
-                    variants={fadeIn("left",0.2)}
+                    variants={fadeIn("down",0.2)}
                     initial="hidden"
                     whileInView={"show"}
                     viewport={{once: false, amount:0.2}}

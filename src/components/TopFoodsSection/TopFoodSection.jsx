@@ -19,10 +19,10 @@ const TopFoodSection = () => {
                 <h1 className="font-outline text-2xl md:text-4xl text-center text-green-400 font-bold mt-5">Our Popular Foods</h1>
             </div>
          
-        <div className="grid grid-cols-1 md:grid-cols-2 container mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 container mx-auto">
             {
                 foods.map(food=>(
-                    <div key={food._id} className="mx-auto my-10 flex  flex-col items-center rounded-xl border px-4 py-4 text-center md:w-[500px] md:flex-row md:items-start md:text-left transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400">
+                    <div key={food._id} className="md:mx-auto my-10 flex  flex-col items-center rounded-xl border px-4 py-4 text-center md:w-[500px] md:flex-row md:items-start md:text-left transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400">
                     <div className="mb-4 md:mr-6 md:mb-0">
                       <img className="h-56 rounded-lg object-cover md:w-56" src={food.food_image} alt="" />
                     </div>
@@ -32,7 +32,7 @@ const TopFoodSection = () => {
                       <div className="flex space-x-2">
                         
                         <div className="flex flex-col items-center rounded-xl bg-gray-100 mb-2 p-3">
-                          <p className="text-sm font-medium text-gray-800 font-poppins">Price</p>
+                          <p className="text-sm font-medium text-gray-800 font-poppins text-center">Price</p>
                           <p className="text-3xl font-medium text-green-600">$ {food.price}</p>
                         </div>
 

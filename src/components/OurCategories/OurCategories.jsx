@@ -22,8 +22,8 @@ const OurCategories = () => {
              className="flex flex-col md:flex-row gap-4 md:gap-0 justify-center md:justify-between items-center mb-6">
                 <div
                 className="text-2xl md:text-4xl font-bold font-outfit text-black">Our Categories 
-                 <span  className="ml-2">
-                <Typewriter className="" md:words={['Delicious Starters', 'Mouth-watering Appetizers', 'Tasty Beginnings', 'Savoury Small Plates']} loop={5} />
+                 <span  className="ml-2 text-green-400">
+                <Typewriter className="" words={['Delicious Starters', 'Mouth-watering Appetizers', 'Tasty Beginnings', 'Savoury Small Plates']} loop={5} />
 
                 </span>
                 </div>
@@ -37,13 +37,10 @@ const OurCategories = () => {
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3">
-            <motion.div
-            variants={fadeIn("left",0.3)}
-            initial="hidden"
-            whileInView={"show"}
-            viewport={{once: false, amount:0.7}}
-        className="group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 text-black hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10">
-        <span className="absolute top-10 z-0 h-20 w-20 rounded-full bg-green-400 transition-all duration-300 group-hover:scale-[10]"></span>
+            <div
+            
+        className="flex flex-col justify-center group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 text-black md:hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10">
+        <span className="absolute top-10 z-0 h-20 w-20 rounded-full  md:bg-green-400 transition-all duration-300 group-hover:scale-[10]"></span>
         <div
         
          className="relative z-10 mx-auto max-w-md">
@@ -54,14 +51,11 @@ const OurCategories = () => {
                 <p className="text-xl capitalize font-poppins">Appetizer</p>
             </div>
         </div>
-    </motion.div>
-            <motion.div
-             variants={fadeIn("left",0.3)}
-             initial="hidden"
-             whileInView={"show"}
-             viewport={{once: false, amount:0.7}}
-        className="group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 text-black hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10">
-        <span className="absolute top-10 z-0 h-20 w-20 rounded-full bg-green-400 transition-all duration-300 group-hover:scale-[10]"></span>
+    </div>
+            <div
+             
+        className="flex flex-col justify-center group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 text-black md:hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10">
+        <span className="absolute top-10 z-0 h-20 w-20 rounded-full md:bg-green-400 transition-all duration-300 group-hover:scale-[10]"></span>
         <div className="relative z-10 mx-auto max-w-md">
             <span className="grid h-20 w-20 place-items-center rounded-full bg-green-400 transition-all duration-300 group-hover:bg-green-400">
                 <img src={soup} className="w-16 h-16" alt="" />
@@ -70,14 +64,11 @@ const OurCategories = () => {
                 <p className="text-xl capitalize font-poppins">Soup</p>
             </div>
         </div>
-    </motion.div>
-            <motion.div
-             variants={fadeIn("left",0.3)}
-             initial="hidden"
-             whileInView={"show"}
-             viewport={{once: false, amount:0.7}}
-        className="group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 text-black hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10">
-        <span className="absolute top-10 z-0 h-20 w-20 rounded-full bg-green-400 transition-all duration-300 group-hover:scale-[10]"></span>
+    </div>
+            <div
+             
+        className="flex flex-col justify-center group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 text-black md:hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10">
+        <span className="absolute top-10 z-0 h-20 w-20 rounded-full md:bg-green-400 transition-all duration-300 group-hover:scale-[10]"></span>
         <div className="relative z-10 mx-auto max-w-md">
             <span className="grid h-20 w-20 place-items-center rounded-full bg-green-400 transition-all duration-300 group-hover:bg-green-400">
                 <img src={salad} className="w-16 h-16" alt="" />
@@ -86,15 +77,12 @@ const OurCategories = () => {
                 <p className="text-xl capitalize font-poppins">salad</p>
             </div>
         </div>
-    </motion.div>
+    </div>
             
-            <motion.div
-             variants={fadeIn("left",0.3)}
-             initial="hidden"
-             whileInView={"show"}
-             viewport={{once: false, amount:0.7}}
-        className="group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 text-black hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10">
-        <span className="absolute top-10 z-0 h-20 w-20 rounded-full bg-green-400 transition-all duration-300 group-hover:scale-[10]"></span>
+            <div
+             
+        className="flex flex-col justify-center group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 text-black md:hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10">
+        <span className="absolute top-10 z-0 h-20 w-20 rounded-full md:bg-green-400 transition-all duration-300 group-hover:scale-[10]"></span>
         <div className="relative z-10 mx-auto max-w-md">
             <span className="grid h-20 w-20 place-items-center rounded-full bg-green-400 transition-all duration-300 group-hover:bg-green-400">
                 <img src={desert} className="w-16 h-16" alt="" />
@@ -103,14 +91,11 @@ const OurCategories = () => {
                 <p className="text-xl capitalize font-poppins">desert</p>
             </div>
         </div>
-    </motion.div>
-            <motion.div
-             variants={fadeIn("left",0.3)}
-             initial="hidden"
-             whileInView={"show"}
-             viewport={{once: false, amount:0.7}}
-        className="group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 text-black hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10">
-        <span className="absolute top-10 z-0 h-20 w-20 rounded-full bg-green-400 transition-all duration-300 group-hover:scale-[10]"></span>
+    </div>
+            <div
+             
+        className="flex flex-col justify-center group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 text-black md:hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10">
+        <span className="absolute top-10 z-0 h-20 w-20 rounded-full md:bg-green-400  transition-all duration-300 group-hover:scale-[10]"></span>
         <div className="relative z-10 mx-auto max-w-md">
             <span className="grid h-20 w-20 place-items-center rounded-full bg-green-400 transition-all duration-300 group-hover:bg-green-400">
                 <img src={pizza} className="w-16 h-16" alt="" />
@@ -119,15 +104,12 @@ const OurCategories = () => {
                 <p className="text-xl capitalize font-poppins">pizza</p>
             </div>
         </div>
-    </motion.div>
+    </div>
             
-            <motion.div
-             variants={fadeIn("left",0.3)}
-             initial="hidden"
-             whileInView={"show"}
-             viewport={{once: false, amount:0.7}}
-        className="group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 text-black hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10">
-        <span className="absolute top-10 z-0 h-20 w-20 rounded-full bg-green-400 transition-all duration-300 group-hover:scale-[10]"></span>
+            <div
+             
+        className="flex flex-col justify-center group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 text-black md:hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10">
+        <span className="absolute top-10 z-0 h-20 w-20 rounded-full md:bg-green-400 transition-all duration-300 group-hover:scale-[10]"></span>
         <div className="relative z-10 mx-auto max-w-md">
             <span className="grid h-20 w-20 place-items-center rounded-full bg-green-400 transition-all duration-300 group-hover:bg-green-400">
                 <img src={sushi} className="w-16 h-16" alt="" />
@@ -136,7 +118,7 @@ const OurCategories = () => {
                 <p className="text-xl capitalize font-poppins">sushi</p>
             </div>
         </div>
-    </motion.div>
+    </div>
             
             </div>
         </div>

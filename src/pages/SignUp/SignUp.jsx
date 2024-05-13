@@ -58,13 +58,10 @@ const SignUp = () => {
                 <link rel="canonical" href="http://mysite.com//" />
             </Helmet>
             </HelmetProvider>
-			<div className="bg-[url('https://i.ibb.co/thHRrHj/signin-image.jpg')] bg-no-repeat w-96 h-96">
-
-			</div>
             <div>
             <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-base text-gray-100">
 	<div className="mb-8 text-center">
-		<h1 className="my-3 text-4xl font-bold text-[#121212]">Sign Up</h1>
+		<h1 className="my-3 text-4xl font-bold text-white">Sign Up</h1>
 		<p className="text-sm text-green-400 font-medium font-poppins">Sign up to access your account</p>
 	</div>
 	<form onSubmit={handleSubmit} className="space-y-6">
@@ -92,7 +89,7 @@ const SignUp = () => {
 		<div className="space-y-2">
             <input type="submit" value="Sign Up" className="w-full px-8 py-3 font-semibold rounded-md bg-green-500  hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400" />
 			<p className="px-6 text-sm text-center text-gray-400">Already have an account yet?
-				<Link to="/login" rel="noopener noreferrer" className="hover:underline text-green-400 font-medium">Login</Link>.
+				<Link to="/login" rel="noopener noreferrer" className="hover:underline text-green-400 font-medium"> Login</Link>.
 			</p>
 		</div>
 	</form>
