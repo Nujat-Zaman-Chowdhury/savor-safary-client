@@ -41,12 +41,15 @@ const AddFoodItemPage = () => {
 
                 },
                 
+                purchase_count:0,
+                
                 
             }
             
             try{
                 const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/foods`,foodData)
                 toast.success('Food Added Successfully')
+                form.reset();
                 
             }
             catch(err){

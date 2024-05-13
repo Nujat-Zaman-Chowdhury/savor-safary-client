@@ -11,11 +11,16 @@ const FoodPurchasePage = () => {
     console.log(food);
     const {_id,food_name,food_image,category,price,name,food_origin,description,quantity,addBy} = food || {};
     console.log(addBy);
+    const availableQuantity = quantity;
+  
     const {user} = useAuth();
     const [startDate, setStartDate] = useState(new Date());
     const handleSubmit = async(e)=>{
         e.preventDefault();
         if(user?.email === addBy.email ) return toast.error('Action not permitted')
+        if(availableQuantity === 0){
+            return toast.error(`Item is not available`)
+        }
         const form = e.target;
         const name = user?.displayName;
         const email = user?.email;
@@ -23,7 +28,10 @@ const FoodPurchasePage = () => {
         const buying_date = startDate.toLocaleDateString();
         const quantity = parseFloat(form.quantity.value)
         const price = parseFloat(form.price.value)
-       
+
+       if(quantity>availableQuantity){
+        return toast.error(`Apologize,${availableQuantity} quantity available`)
+       }
         
         // console.log(name,email,food_name,quantity,price,buying_date);
         const purchaseData = {
@@ -34,7 +42,13 @@ const FoodPurchasePage = () => {
             buying_date,
             quantity,
             price,
-            purchase_count:0
+            buyer:{
+                email,
+                name:user?.displayName
+            },
+            purchase_count:0,
+            availableQuantity,
+
         }
         console.log(purchaseData);
 

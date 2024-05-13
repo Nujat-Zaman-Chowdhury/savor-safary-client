@@ -82,7 +82,7 @@ const AllFoods = () => {
             {
                 foods.map(food=>(
                     <div key={food._id} className="w-full max-w-sm overflow-hidden  bg-black  rounded-lg shadow-md shadow-zinc-50 bg-grey-100">
-            <img className="md:h-[300px] object-cover object-center" src={food.food_image} alt="avatar"/>
+            <img className="md:h-[320px] w-full object-cover object-center" src={food.food_image} alt="avatar"/>
 
     <div className="flex px-6 py-3 bg-white">
         
