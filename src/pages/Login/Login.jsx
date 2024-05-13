@@ -1,13 +1,24 @@
 //https://i.ibb.co/SND554L/login-img.jpg
 
 import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import { useEffect } from "react";
+import axios from "axios";
 
 //https://i.ibb.co/thHRrHj/signin-image.jpg
 const Login = () => {
-    const {signIn,signInWithGoogle} = useAuth();
+    const {signIn,signInWithGoogle,user,loading} = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state || "/";
+
+
+    useEffect(()=>{
+      if(user){
+        navigate('/')
+      }
+    },[user,navigate])
 
     const handleSubmit =async e =>{
         e.preventDefault();
@@ -18,9 +29,10 @@ const Login = () => {
 
         try{
             const result = await signIn(email,password)
+            const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/jwt`,{email: result?.user?.email},{withCredentials:true})
             toast.success('Login Successful')
             navigate('/')
-            console.log(result.user);
+            // console.log(result.user);
         
             }
             
@@ -33,14 +45,17 @@ const Login = () => {
     const handleGoogleSignIn = async()=>{
         try{
           const result = await signInWithGoogle()
+          const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/jwt`,{email: result?.user?.email},{withCredentials:true})
           toast.success('Login Successful')
-          
+          navigate(from)
         }
         catch(err){
           console.log(err);
           toast.err(err?.message)
         }
       }
+
+    if(user || loading) return
     return (
         <div className="flex justify-center items-center">
             

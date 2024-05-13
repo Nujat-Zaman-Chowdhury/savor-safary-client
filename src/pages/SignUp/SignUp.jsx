@@ -1,12 +1,22 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import { useEffect } from "react";
+import axios from "axios";
 
 
 const SignUp = () => {
-    const {createUser,updateUserProfile,setUser} = useAuth()
+    const {createUser,updateUserProfile,user,setUser,loading} = useAuth();
+	const navigate = useNavigate()
+    const location = useLocation();
+    const from = location?.state || "/";
 
-    const navigate = useNavigate()
+     useEffect(()=>{
+		if(user){
+			navigate('/')
+    }
+	},[navigate,user])
+
     const handleSubmit = async e =>{
         e.preventDefault();
         const form = e.target;
@@ -21,8 +31,9 @@ const SignUp = () => {
 
           await  updateUserProfile(name,photo)
           setUser({...result?.user, displayName:name, photoURL:photo})
+		  const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/jwt`,{email: result?.user?.email},{withCredentials:true})
+          navigate(from)
           toast.success('Sign Up Successful')
-          navigate('/')
                 
                 
        }
@@ -35,7 +46,7 @@ const SignUp = () => {
 
     }
 
-
+	if(user || loading) return
     return (
         <div className="flex justify-center items-center">
 			<div className="bg-[url('https://i.ibb.co/thHRrHj/signin-image.jpg')] bg-no-repeat w-96 h-96">
