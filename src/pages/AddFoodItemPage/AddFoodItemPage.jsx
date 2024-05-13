@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { HelmetProvider } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 
 
 
@@ -58,7 +60,15 @@ const AddFoodItemPage = () => {
         }
 
     return (
-        <section className="p-6 mx-auto bg-white shadow-md dark:bg-gray-900">
+        <div>
+            <HelmetProvider>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>SavorSafary | AddFoodItem</title>
+                <link rel="canonical" href="http://mysite.com//" />
+            </Helmet>
+            </HelmetProvider>
+            <section className="p-6 mx-auto bg-white shadow-md dark:bg-gray-900">
     <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">Add Food Item</h2>
 
     <form onSubmit={handleSubmit}>
@@ -127,6 +137,7 @@ const AddFoodItemPage = () => {
         </div>
     </form>
 </section>
+        </div>
     );
 };
 

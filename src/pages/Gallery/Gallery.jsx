@@ -3,6 +3,8 @@ import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
+import { HelmetProvider } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 
 
 const Gallery = () => {
@@ -88,6 +90,13 @@ const Gallery = () => {
     },[])
     return (
         <div className="">
+            <HelmetProvider>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>SavorSafary | Gallery</title>
+                <link rel="canonical" href="http://mysite.com//" />
+            </Helmet>
+            </HelmetProvider>
             <h3 className="text-green-300 font-bold mb-5 text-xl md:text-3xl text-center pt-5">Explore Our All Food Gallery</h3>
             <div className="text-center mt-6 text-white font-bold font-poppins">
                 <Link to="/">Home</Link> | <span className="bg-gradient-to-r from-[#223822] to-[#98FB98] text-transparent bg-clip-text">Gallery</span>

@@ -5,6 +5,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { useEffect } from "react";
 import axios from "axios";
+import { HelmetProvider } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 
 //https://i.ibb.co/thHRrHj/signin-image.jpg
 const Login = () => {
@@ -58,6 +60,13 @@ const Login = () => {
     if(user || loading) return
     return (
         <div className="flex justify-center items-center">
+          <HelmetProvider>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>SavorSafary | Login</title>
+                <link rel="canonical" href="http://mysite.com//" />
+            </Helmet>
+            </HelmetProvider>
             
             <div>
             <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-base text-gray-100">

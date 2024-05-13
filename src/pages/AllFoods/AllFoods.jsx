@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
+import { HelmetProvider } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 
@@ -54,6 +56,13 @@ const AllFoods = () => {
 
     return (
         <div className="w-full h-full font-outfit bg-[url('https://i.ibb.co/8zxX0XY/bg-2.jpg')] bg-cover bg-center bg-no-repeat p-5">
+            <HelmetProvider>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>SavorSafary | AllFoods</title>
+                <link rel="canonical" href="http://mysite.com//" />
+            </Helmet>
+            </HelmetProvider>
             <h3 className="text-green-300 font-bold mb-5 text-xl md:text-3xl text-center pt-5">Explore Our All Food Items</h3>
             
             <div className="text-center mt-6 text-white font-bold font-poppins">

@@ -1,3 +1,5 @@
+import { Helmet } from "react-helmet";
+import { HelmetProvider } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router-dom";
 
 const SingleFoodDetails = () => {
@@ -6,6 +8,13 @@ const SingleFoodDetails = () => {
     return (
 
         <div className="p-2">
+            <HelmetProvider>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>SavorSafary | FoodDetails</title>
+                <link rel="canonical" href="http://mysite.com//" />
+            </Helmet>
+            </HelmetProvider>
             <section className="container mx-auto p-3 lg:p-12 antialiased .hover:shadow-lg bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100  my-6">
     <article
         className="flex flex-wrap lg:flex-nowrap mx-auto group cursor-pointer transform duration-500 hover:-translate-y-1 h-full">

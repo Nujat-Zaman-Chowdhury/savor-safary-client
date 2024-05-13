@@ -3,6 +3,8 @@ import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
 import axios from "axios";
+import { HelmetProvider } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 
 
 const SignUp = () => {
@@ -49,6 +51,13 @@ const SignUp = () => {
 	if(user || loading) return
     return (
         <div className="flex justify-center items-center">
+			<HelmetProvider>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>SavorSafary | SignUp</title>
+                <link rel="canonical" href="http://mysite.com//" />
+            </Helmet>
+            </HelmetProvider>
 			<div className="bg-[url('https://i.ibb.co/thHRrHj/signin-image.jpg')] bg-no-repeat w-96 h-96">
 
 			</div>

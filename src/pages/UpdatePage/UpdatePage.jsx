@@ -2,6 +2,8 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { HelmetProvider } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 
 
 const UpdatePage = () => {
@@ -47,6 +49,13 @@ const UpdatePage = () => {
 
     return (
         <section className="p-6 mx-auto bg-white shadow-md dark:bg-gray-900">
+            <HelmetProvider>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>SavorSafary | UpdateFoodItem</title>
+                <link rel="canonical" href="http://mysite.com//" />
+            </Helmet>
+            </HelmetProvider>
     <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">Update Food Item</h2>
 
     <form onSubmit={handleSubmit}>

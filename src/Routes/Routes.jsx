@@ -12,6 +12,7 @@ import AddFoodItemPage from '../pages/AddFoodItemPage/AddFoodItemPage.jsx';
 import FoodPurchasePage from '../pages/FoodPurchasePage/FoodPurchasePage.jsx';
 import UpdatePage from '../pages/UpdatePage/UpdatePage.jsx';
 import MyPurchasedPage from '../pages/MyPurchasedPage/MyPurchasedPage.jsx';
+import PrivateRoute from './PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
         },
         {
           path:"/food-details/:id",
-          element:<SingleFoodDetails></SingleFoodDetails>,
+          element:<PrivateRoute><SingleFoodDetails></SingleFoodDetails></PrivateRoute>,
           loader: ({params})=>fetch(`${import.meta.env.VITE_API_URL}/food/${params.id}`)
         },
         {

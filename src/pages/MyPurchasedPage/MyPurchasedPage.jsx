@@ -3,6 +3,8 @@ import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
+import { HelmetProvider } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 
 const MyPurchasedPage = () => {
     const {user}= useAuth();
@@ -38,6 +40,13 @@ const MyPurchasedPage = () => {
 
     return (
         <div className="overflow-x-auto">
+            <HelmetProvider>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>SavorSafary | PurchasedFoodItems</title>
+                <link rel="canonical" href="http://mysite.com//" />
+            </Helmet>
+            </HelmetProvider>
             <table className="divide-y divide-gray-200 overflow-x-auto my-6 container mx-auto">
     <thead className="bg-gray-50">
         <tr>
