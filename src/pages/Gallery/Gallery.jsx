@@ -9,6 +9,8 @@ const Gallery = () => {
     const {user} = useAuth();
     const navigate = useNavigate();
     const [galleries,setGalleries] = useState([]);
+    const [loading,setLoading]= useState(true);
+    const [page,setPage] = useState(1);
 
     const handleOpenModel = ()=>{
         if(user){
@@ -33,10 +35,11 @@ const Gallery = () => {
 
         try{
             
-            const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/galleries`,galleryData)
+            const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/galleries?_limit=9&_page=${page}`,galleryData)
             
             if(data.insertedId){
                 toast.success('Added Successfully')
+                form.reset();
             }
             }
             
@@ -50,16 +53,39 @@ const Gallery = () => {
         document.getElementById('my_modal_1').close();
     }
 
-    
+    const handleInfiniteScroll = async()=>{
+        console.log("scrollHeight" + document.documentElement.scrollHeight);
+        console.log("innerHeight",+ window.innerHeight)
+        console.log("scrollTop",+document.documentElement.scrollTop)
+        try{
+            if(window.innerHeight + document.documentElement.scrollTop + 1 >= document.documentElement.scrollHeight){
+                setPage((prev)=>prev+1)
+            }
+            setLoading(true)
+        }
+        catch(error){
+            console.log(error);
+        }
+    }
 
     useEffect(()=>{
         const getData = async()=>{
-            const {data} = await axios(`${import.meta.env.VITE_API_URL}/galleries`)
-
-            setGalleries(data);
+            const {data} = await axios(`${import.meta.env.VITE_API_URL}/galleries?_limit=9&_page=${page}`)
+            if (page === 1) {
+                setGalleries(data.slice(0,9));
+            } else {
+                setGalleries(prevGalleries => [...prevGalleries, ...data]);
+            }
+            // setGalleries(data);
+            // setGalleries((prev)=>[...prev, ...data])
+            setLoading(false)
         }
         getData();
-    })
+    },[page])
+    useEffect(()=>{
+        window.addEventListener("scroll",handleInfiniteScroll)
+        return()=>window.removeEventListener("scroll",handleInfiniteScroll);
+    },[])
     return (
         <div className="">
             <h3 className="text-green-300 font-bold mb-5 text-xl md:text-3xl text-center pt-5">Explore Our All Food Gallery</h3>
@@ -130,7 +156,7 @@ const Gallery = () => {
                                 >
                                     <div className="font-bold">{gallery.name}</div>
 
-                                    <div className="opacity-60 text-sm ">
+                                    <div className="text-sm text-bold">
                                         {gallery.feedback}
                                     </div>
                                 </div>
@@ -148,7 +174,7 @@ const Gallery = () => {
             </div>
 
 
-            
+           {loading && <div className="text-center my-4">Loading...</div>} 
         </div>
     );
 };
