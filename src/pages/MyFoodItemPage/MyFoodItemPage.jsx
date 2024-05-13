@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 
 const MyFoodItemPage = () => {
@@ -14,9 +15,25 @@ const MyFoodItemPage = () => {
 
     const getData = async()=>{
         const {data} = await axios(`${import.meta.env.VITE_API_URL}/foods/${user?.email}`)
-        console.log(data);
+        // console.log(data);
         setFoods(data);
     } 
+
+    const handleDelete =async(id)=>{
+        console.log(id);
+       
+        
+        try{
+            const {data} = await axios.delete(`${import.meta.env.VITE_API_URL}/food/${id}`)
+            toast.success('Deleted')
+
+            getData();
+        }
+        catch(error){
+            console.log(error.message);
+            toast.error(error.message)
+        }
+    }
 
     return (
         <div className="overflow-x-auto">
@@ -62,8 +79,10 @@ const MyFoodItemPage = () => {
                 </span>
             </td>
             
-            <td className="px-6 py-4 whitespace-nowrap  text-sm font-medium">
+            <td className="px-6 py-4 whitespace-nowrap space-x-2  text-sm font-medium">
                 <Link to={`/update/${food._id}`} className="btn text-indigo-600 hover:text-indigo-900">Update</Link>
+            
+                <button onClick={()=>handleDelete(food._id)} className="btn text-indigo-600 hover:text-indigo-900">Delete</button>
             </td>
         </tr>
             ))

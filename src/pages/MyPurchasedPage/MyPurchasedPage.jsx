@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const MyPurchasedPage = () => {
     const {user}= useAuth();
@@ -17,6 +18,24 @@ const MyPurchasedPage = () => {
         console.log(data);
         setFoods(data);
     } 
+
+    const handleDelete =async(id)=>{
+        console.log(id);
+        
+        
+        try{
+            const {data} = await axios.delete(`${import.meta.env.VITE_API_URL}/purchase-food-items/${id}`)
+            toast.success('Deleted')
+
+            getData();
+        }
+        catch(error){
+            console.log(error.message);
+            toast.error(error.message)
+        }
+    }
+
+
     return (
         <div className="overflow-x-auto">
             <table className="divide-y divide-gray-200 overflow-x-auto my-6 container mx-auto">
@@ -74,7 +93,7 @@ const MyPurchasedPage = () => {
             </td>
             
             <td className="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                <Link to={`/update/${food._id}`} className="btn text-indigo-600 hover:text-indigo-900">Update</Link>
+                <button onClick={()=>handleDelete(food._id)}>Delete</button>
             </td>
         </tr>
             ))
