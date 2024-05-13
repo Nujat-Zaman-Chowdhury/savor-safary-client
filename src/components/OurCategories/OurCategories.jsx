@@ -23,7 +23,7 @@ const OurCategories = () => {
                 <div
                 className="text-2xl md:text-4xl font-bold font-outfit text-black">Our Categories 
                  <span  className="ml-2">
-                <md:Typewriter className="" md:words={['Delicious Starters', 'Mouth-watering Appetizers', 'Tasty Beginnings', 'Savoury Small Plates']} loop={5} />
+                <Typewriter className="" md:words={['Delicious Starters', 'Mouth-watering Appetizers', 'Tasty Beginnings', 'Savoury Small Plates']} loop={5} />
 
                 </span>
                 </div>

@@ -29,11 +29,11 @@ const SignUp = () => {
        try{
         const result = await createUser(email,password)
 
-          await  updateUserProfile(name,photo)
-          setUser({...result?.user, displayName:name, photoURL:photo})
-		  const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/jwt`,{email: result?.user?.email},{withCredentials:true})
-          navigate(from)
-          toast.success('Sign Up Successful')
+		await  updateUserProfile(name,photo)
+		setUser({...result?.user, displayName:name, photoURL:photo})
+		const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/jwt`,{email: result?.user?.email},{withCredentials:true})
+		navigate(from)
+		toast.success('Sign Up Successful')
                 
                 
        }
