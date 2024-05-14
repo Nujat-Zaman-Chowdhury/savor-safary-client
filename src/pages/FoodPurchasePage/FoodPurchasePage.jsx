@@ -8,9 +8,9 @@ import axios from "axios";
 
 const FoodPurchasePage = () => {
     const food = useLoaderData();
-    console.log(food);
+    // console.log(food);
     const {_id,food_name,food_image,category,price,name,food_origin,description,quantity,addBy} = food || {};
-    console.log(addBy);
+    // console.log(addBy);
     const availableQuantity = quantity;
   
     const {user} = useAuth();
@@ -50,7 +50,7 @@ const FoodPurchasePage = () => {
             availableQuantity,
 
         }
-        console.log(purchaseData);
+        // console.log(purchaseData);
 
         try{
             const {data} = axios.post(`${import.meta.env.VITE_API_URL}/purchase-food-items`,purchaseData)
@@ -59,6 +59,7 @@ const FoodPurchasePage = () => {
         }
         catch(err){
             console.log(err);
+            
         }
     }
     return (

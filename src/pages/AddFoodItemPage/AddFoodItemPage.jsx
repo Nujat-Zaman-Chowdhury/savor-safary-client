@@ -26,7 +26,7 @@ const AddFoodItemPage = () => {
             const food_origin= form.food_origin.value;
             const description = form.description.value;
 
-            // console.log(name,email,food_name,food_image,category,quantity,price,food_origin,description);
+            
             const foodData = {
                 name,
                 email,
@@ -55,7 +55,8 @@ const AddFoodItemPage = () => {
                 
             }
             catch(err){
-                console.log(err);
+                // console.log(err);
+                toast.error(err)
             }
         }
 

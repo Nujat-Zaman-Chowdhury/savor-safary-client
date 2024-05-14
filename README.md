@@ -1,13 +1,23 @@
-# 
+# SavorSafari
 
-- [Live Link(Firebase)]()
+- [Live Link(Firebase)](https://server-side-tau-lime.vercel.app)
+
+
+  Features:
+  
+- Implemented secure login and sign up functionality.login users can access to personalized food items.
+- Users can navigate through our various categories.
+- Displayed a comprehensive database of different food items.
+- Implemented CRUD operation for managing food items
+- Users can access our website from any device.
+
+
+
 
 
   Resources:
 
 - [Meraki UI - Components](https://merakiui.com/components)
-- [react-tabs](https://www.npmjs.com/package/react-tabs)
-- [Swiper Slider](https://swiperjs.com/)
 - [Daisy UI](https://daisyui.com/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [React Router Dom](https://reactrouter.com/en/main)
@@ -15,5 +25,6 @@
 - [Firebase](https://console.firebase.google.com/)
 - [MongoDB](https://www.mongodb.com/)
 - [React-Hot-Toast](https://react-hot-toast.com/)
-- [date-fns](https://date-fns.org/)
 - [axios](https://axios-http.com/docs/intro)
+
+

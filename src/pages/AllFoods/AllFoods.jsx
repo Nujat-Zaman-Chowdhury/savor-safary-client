@@ -37,13 +37,13 @@ const AllFoods = () => {
 
         getCount();
     },[search])
-    console.log(count);
+    // console.log(count);
 
 
     const pages = [...Array(numberOfPages).keys()].map(element=>element+1)
 
     const handlePaginationButton = (value)=>{
-        console.log(value);
+        // console.log(value);
         setCurrentPage(value);
     }
 
