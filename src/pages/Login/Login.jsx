@@ -16,11 +16,6 @@ const Login = () => {
     const from = location?.state || "/";
 
 
-    useEffect(()=>{
-      if(user){
-        navigate('/')
-      }
-    },[user,navigate])
 
     const handleSubmit =async e =>{
         e.preventDefault();
@@ -33,14 +28,13 @@ const Login = () => {
             const result = await signIn(email,password)
             const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/jwt`,{email: result?.user?.email},{withCredentials:true})
             toast.success('Login Successful')
-            navigate('/')
+            navigate(from);
             // console.log(result.user);
         
             }
             
-            catch(err){
-              console.log(err);
-              toast.err(err?.message)
+            catch(error){
+              return toast.error(error?.message)
             }
     }
 
@@ -53,11 +47,11 @@ const Login = () => {
         }
         catch(err){
           console.log(err);
-          toast.err(err?.message)
+          return toast.error(err?.message)
         }
       }
 
-    if(user || loading) return
+    // if(user || loading) return
     return (
         <div className="flex flex-col md:flex-row justify-center items-center">
           <HelmetProvider>

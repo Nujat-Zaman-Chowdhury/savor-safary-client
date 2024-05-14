@@ -26,7 +26,12 @@ const AddFoodItemPage = () => {
             const food_origin= form.food_origin.value;
             const description = form.description.value;
 
-            
+            if(quantity<0){
+                return toast('Include a positive number')
+            }
+            if(quantity===0){
+                return toast('Quantity should be greater than zero')
+            }
             const foodData = {
                 name,
                 email,

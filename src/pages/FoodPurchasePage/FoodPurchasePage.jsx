@@ -25,9 +25,11 @@ const FoodPurchasePage = () => {
         const name = user?.displayName;
         const email = user?.email;
         const food_name = form.food_name.value;
-        const buying_date = startDate.toLocaleDateString();
+        const buying_date = startDate.toDateString();
+        console.log(buying_date);
         const quantity = parseFloat(form.quantity.value)
         const price = parseFloat(form.price.value)
+        if(quantity<=0) return toast('Include a positive number')
 
        if(quantity>availableQuantity){
         return toast.error(`Apologize,${availableQuantity} quantity available`)
@@ -78,11 +80,11 @@ const FoodPurchasePage = () => {
                     <input name="email" type="email" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-black/60 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" defaultValue={user && user.email} readOnly/>
                 </div>
                 </div>
-                <div >
+                {/* <div >
                     <label className="text-gray-700 dark:text-gray-200">Date</label><br></br>
                     <DatePicker className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-black/60 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" selected={startDate} onChange={(date) => setStartDate(date)} required/>
-                    {/* <input name="email" type="email" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-black dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" defaultValue={user && user.email} required/> */}
-                </div>
+                    
+                </div> */}
                 <div>
                     <label className="text-gray-700 dark:text-gray-200">Food Name</label>
                     <input name="food_name" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-black/60 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" defaultValue={food_name}/>
@@ -99,7 +101,7 @@ const FoodPurchasePage = () => {
                 </div>
 
                 <div className="flex justify-end mt-6">
-                <input type="submit" value="Purchase" className="px-8 py-2.5 leading-5 bg-black/60 text-white transition-colors duration-300 transform rounded-md hover:bg-black/60 focus:outline-none hover:text-green-400 focus:bg-gray-600"/>
+                <input disabled={quantity === 0}  type="submit" value="Purchase" className="disabled:cursor-not-allowed px-8 py-2.5 leading-5 bg-black/60 text-white transition-colors duration-300 transform rounded-md hover:bg-black/60 focus:outline-none hover:text-green-400 focus:bg-gray-600"/>
                 </div>
             </div>
     

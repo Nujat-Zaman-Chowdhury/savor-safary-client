@@ -13,11 +13,7 @@ const SignUp = () => {
     const location = useLocation();
     const from = location?.state || "/";
 
-     useEffect(()=>{
-		if(user){
-			navigate('/')
-    }
-	},[navigate,user])
+
 
     const handleSubmit = async e =>{
         e.preventDefault();
@@ -33,22 +29,30 @@ const SignUp = () => {
 
 		await  updateUserProfile(name,photo)
 		setUser({...result?.user, displayName:name, photoURL:photo})
+		
+		//for users store to db
+		await axios.post(`${import.meta.env.VITE_API_URL}/users`,{
+			name,
+			email,
+			photo
+
+		})
 		const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/jwt`,{email: result?.user?.email},{withCredentials:true})
 		navigate(from)
-		toast.success('Sign Up Successful')
+		return toast.success('Sign Up Successful')
                 
                 
        }
        catch(err){
         console.log(err);
-        toast.error(err?.message)
+         return toast.error(err?.message)
         
        }
 
 
     }
 
-	if(user || loading) return
+
     return (
         <div className="flex justify-center items-center">
 			<HelmetProvider>

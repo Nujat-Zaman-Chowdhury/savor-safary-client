@@ -4,7 +4,7 @@
 
 
   Features:
-  
+
 - Implemented secure login and sign up functionality.login users can access to personalized food items.
 - Users can navigate through our various categories.
 - Displayed a comprehensive database of different food items.
@@ -26,5 +26,6 @@
 - [MongoDB](https://www.mongodb.com/)
 - [React-Hot-Toast](https://react-hot-toast.com/)
 - [axios](https://axios-http.com/docs/intro)
+- [react-helmet](https://www.npmjs.com/package/react-helmet-async)
 
 

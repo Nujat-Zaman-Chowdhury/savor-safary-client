@@ -63,7 +63,7 @@ const AllFoods = () => {
                 <link rel="canonical" href="http://mysite.com//" />
             </Helmet>
             </HelmetProvider>
-            <h3 className="text-green-300 font-bold mb-5 text-xl md:text-3xl text-center pt-5">Explore Our All Food Items</h3>
+            <h3 className="text-green-400 font-bold mb-5 text-xl md:text-3xl text-center pt-5">Explore Our All Food Items</h3>
             
             <div className="text-center mt-6 text-white font-bold font-poppins">
                 <Link to="/">Home</Link> | <span className="bg-gradient-to-r from-[#223822] to-[#98FB98] text-transparent bg-clip-text">All Foods</span>
@@ -80,7 +80,7 @@ const AllFoods = () => {
                          placeholder="Enter Food Name"
                          aria-label='Enter Food Name'/>
 
-                        <button className="font-poppins px-5 py-3 text-base font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gradient-to-r from-[#223822] to-[#98FB98] text-transparent bg-clip-text rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">Search</button>
+                        <button className="btn btn-ghost font-outline px-5 py-3 text-base font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gradient-to-r from-[#223822] to-[#98FB98] text-transparent bg-clip-text rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">Search</button>
                     </div>
                 </form>
             </div>

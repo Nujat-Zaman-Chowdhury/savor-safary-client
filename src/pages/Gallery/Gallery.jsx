@@ -33,8 +33,6 @@ const Gallery = () => {
             photo,
             feedback
         }
-
-
         try{
             
             const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/galleries?_limit=9&_page=${page}`,galleryData)
