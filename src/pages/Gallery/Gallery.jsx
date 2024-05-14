@@ -27,7 +27,7 @@ const Gallery = () => {
         const name = form.name.value;
         const photo = form.photo.value;
         const feedback = form.feedback.value;
-        console.log(name,photo,feedback)
+        // console.log(name,photo,feedback)
         const galleryData = {
             name,
             photo,

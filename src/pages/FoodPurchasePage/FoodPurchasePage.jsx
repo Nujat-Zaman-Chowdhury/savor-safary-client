@@ -16,18 +16,18 @@ const FoodPurchasePage = () => {
     const {user} = useAuth();
     const [startDate, setStartDate] = useState(new Date());
 
-    const buying_date = startDate.toDateString();
+    
     const handleSubmit = async(e)=>{
         e.preventDefault();
         if(user?.email === addBy.email ) return toast.error('You cannot purchase your own added food item')
-        if(availableQuantity === 0){
-            return toast.error(`Item is not available`)
-        }
+        // if(availableQuantity === 0){
+        //     return toast.error(`Item is not available`)
+        // }
         const form = e.target;
         const name = user?.displayName;
         const email = user?.email;
         const food_name = form.food_name.value;
-       
+        const buying_date = startDate.toDateString();
         console.log(buying_date);
         const quantity = parseFloat(form.quantity.value)
         const price = parseFloat(form.price.value)
@@ -70,14 +70,19 @@ const FoodPurchasePage = () => {
         <section className="p-6 mx-auto bg-[url('https://i.ibb.co/Vt5F7dy/jason-leung-po-I7-Del-Fi-VA-unsplash.jpg')] bg-cover bg-center bg-no-repeat">
         
         <div className="text-center my-2 space-y-2">
-        <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">Purchase Food Item</h2>
-        <p className="font-poppins text-white font-medium">Available: {availableQuantity}</p>
+        <h2 className="text-lg lg:text-3xl  font-bold text-gray-700 capitalize dark:text-white">Purchase Food Item</h2>
         </div>
 
-        <form onSubmit={handleSubmit} className="container mx-auto flex flex-col justify-center items-center ">
+        {
+            availableQuantity === 0?
+            <div className="flex justify-center my-4">
+                <p className="text-xl text-white font-outfit font-bold">You can not buy that item because that item is not available</p>
+            </div>
+            :
+            <form onSubmit={handleSubmit} className="container mx-auto flex flex-col justify-center items-center ">
             <div className="flex flex-col p-5 bg-black rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-gray-100">
                 <div className="my-2">
-                    <label className="text-gray-700 dark:text-gray-200">Buying Date: <span className="text-green-400">{buying_date}</span></label><br></br>    
+                    <label className="text-gray-700 dark:text-gray-200">Buying Date: <span className="text-green-400">{startDate.toDateString()}</span></label><br></br>    
                 </div>
                 <div className="flex flex-col md:flex-row gap-4">
                 
@@ -113,6 +118,7 @@ const FoodPurchasePage = () => {
     
             
         </form>
+        }
     </section>
     );
 };
