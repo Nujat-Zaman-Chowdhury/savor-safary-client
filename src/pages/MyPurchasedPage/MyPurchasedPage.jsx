@@ -39,7 +39,7 @@ const MyPurchasedPage = () => {
 
 
     return (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto w-full">
             <HelmetProvider>
             <Helmet>
                 <meta charSet="utf-8" />
@@ -47,32 +47,32 @@ const MyPurchasedPage = () => {
                 <link rel="canonical" href="http://mysite.com//" />
             </Helmet>
             </HelmetProvider>
-            <table className="divide-y divide-gray-200 overflow-x-auto my-6 container mx-auto">
+            <table className="divide-y divide-gray-200 overflow-x-auto w-full">
     <thead className="bg-gray-50">
         <tr>
-            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black font-outfit uppercase tracking-wider">
                 Image
             </th>
-            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black font-outfit uppercase tracking-wider">
                 owner
             </th>
-            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black font-outfit uppercase tracking-wider">
                 Name
             </th>
-            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black font-outfit uppercase tracking-wider">
                 Price
             </th>
-            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black font-outfit uppercase tracking-wider">
             Added Date
             </th>
             
-            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black font-outfit uppercase tracking-wider">
                 Actions
             </th>
             
         </tr>
     </thead>
-    <tbody className="bg-white divide-y divide-gray-200">
+    <tbody className="bg-black/50 divide-y divide-gray-200">
         {
             foods.map(food=>(
             <tr key={food._id} className="">
@@ -82,23 +82,23 @@ const MyPurchasedPage = () => {
                 </div>
             </td>
             <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900">{food.name}</div>
+                <div className="text-sm text-white font-medium">{food.name}</div>
             </td>
             <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900">{food.food_name}</div>
+                <div className="text-sm text-white font-medium">{food.food_name}</div>
             </td>
             <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900">{food.price}</div>
+                <div className="text-sm text-white font-medium">{food.price}</div>
             </td>
             
             <td className="px-6 py-4 whitespace-nowrap">
-                <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                <span className="px-2 inline-flex text-sm text-white font-medium leading-5  rounded-full">
                     {food.buying_date}
                 </span>
             </td>
             
             <td className="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                <button onClick={()=>handleDelete(food._id)}>Delete</button>
+                <button className="btn bg-red-500 border-0  text-white font-outfit hover:text-red-500" onClick={()=>handleDelete(food._id)}>Delete</button>
             </td>
         </tr>
             ))

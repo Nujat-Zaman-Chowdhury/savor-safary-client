@@ -68,7 +68,7 @@ const Footer = () => {
     <div className="bg-green-500 py-3 text-gray-100">
       <div className="container mx-auto px-4">
         <div className="flex justify-center">
-            <small>© Copyright 2024, All Rights Reserved by SavorSafary</small>
+            <small className="text-center">© Copyright 2024, All Rights Reserved by SavorSafary</small>
         </div>
       </div>
     </div>

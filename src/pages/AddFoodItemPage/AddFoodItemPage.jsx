@@ -75,7 +75,7 @@ const AddFoodItemPage = () => {
             </Helmet>
             </HelmetProvider>
             <section className="p-6 mx-auto bg-white shadow-md dark:bg-gray-900">
-    <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">Add Food Item</h2>
+    <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white text-center font-outfit">Add Food Item</h2>
 
     <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">

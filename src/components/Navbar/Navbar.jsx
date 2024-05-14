@@ -18,8 +18,8 @@ const Navbar = () => {
          
           
   </div>
-  <div className="flex-none">
-    <div className="dropdown dropdown-end">
+  <div className="flex space-x-1">
+    <div className="">
        <div className="flex gap-1 text-white  md:gap-8 items-center font-outfit md:text-xl">
        <Link className="relative group">Home
        <span className="absolute -bottom-1 left-0 w-0 h-1 bg-gradient-to-r from-[#223822] to-[#98FB98] transition-all group-hover:w-full"></span>
@@ -32,7 +32,7 @@ const Navbar = () => {
        </Link>
        {
         user?
-        <Link onClick={logOut} to="/login" className="md:mr-4 relative rounded px-5 py-2.5 overflow-hidden group bg-green-500  hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
+        <Link onClick={logOut} to="/login" className="md:mr-4 relative rounded px-2 md:px-5 py-2.5 overflow-hidden group bg-green-500  hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
         <span className="absolute right-0 md:w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
         <span className="relative">Logout</span>
         </Link>:
@@ -46,7 +46,7 @@ const Navbar = () => {
     </div>
     {
         user &&
-        <div className="dropdown dropdown-end">
+        <div className="dropdown dropdown-end text-white">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar hover:bg-green-500">
         
         <div title={user?.displayName} className="w-10 rounded-full">

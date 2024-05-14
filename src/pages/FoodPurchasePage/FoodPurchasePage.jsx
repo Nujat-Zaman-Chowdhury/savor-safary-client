@@ -17,7 +17,7 @@ const FoodPurchasePage = () => {
     const [startDate, setStartDate] = useState(new Date());
     const handleSubmit = async(e)=>{
         e.preventDefault();
-        if(user?.email === addBy.email ) return toast.error('Action not permitted')
+        if(user?.email === addBy.email ) return toast.error('You cannot purchase your own added food item')
         if(availableQuantity === 0){
             return toast.error(`Item is not available`)
         }
@@ -66,11 +66,15 @@ const FoodPurchasePage = () => {
     }
     return (
         <section className="p-6 mx-auto bg-[url('https://i.ibb.co/Vt5F7dy/jason-leung-po-I7-Del-Fi-VA-unsplash.jpg')] bg-cover bg-center bg-no-repeat">
-        <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">Add Food Item</h2>
-    
+        
+        <div className="text-center my-2 space-y-2">
+        <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">Purchase Food Item</h2>
+        <p className="font-poppins text-white font-medium">Available: {availableQuantity}</p>
+        </div>
+
         <form onSubmit={handleSubmit} className="container mx-auto flex flex-col justify-center items-center ">
             <div className="flex flex-col p-5 bg-black rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-gray-100">
-                <div className="flex gap-4">
+                <div className="flex flex-col md:flex-row gap-4">
                 <div>
                     <label className="text-gray-700 dark:text-white">Buyer Name</label>
                     <input name="name" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-black/60 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"defaultValue={user && user.displayName} readOnly/>
@@ -93,7 +97,7 @@ const FoodPurchasePage = () => {
     
                 <div>
                     <label className="text-gray-700 dark:text-gray-200">Quantity</label>
-                    <input name="quantity" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-black/60 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" defaultValue={quantity}/>
+                    <input name="quantity" type="text" placeholder="" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-black/60 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"/>
                 </div>
                 <div>
                     <label className="text-gray-700 dark:text-gray-200">Price</label>

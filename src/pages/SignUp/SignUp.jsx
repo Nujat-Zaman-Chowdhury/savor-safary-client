@@ -72,22 +72,22 @@ const SignUp = () => {
 		<div className="space-y-4">
 			<div>
 				<label htmlFor="name" className="block mb-2 text-[#4c8435]">Name</label>
-				<input type="text" name="name" placeholder="enter your name" className="w-full px-3 py-2 border border-[#61a146] rounded-md  bg-base text-[#61a146] focus:outline-none" />
+				<input type="text" name="name" placeholder="enter your name" className="w-full px-3 py-2 border border-[#61a146] rounded-md  bg-base text-white focus:outline-none" required/>
 			</div>
 			<div>
 				<label htmlFor="email" className="block mb-2 text-[#4c8435]">Email address</label>
-				<input type="email" name="email" placeholder="example@gmail.com" className="w-full px-3 py-2 border border-[#61a146] rounded-md  bg-base text-[#61a146] focus:outline-none" />
+				<input type="email" name="email" placeholder="example@gmail.com" className="w-full px-3 py-2 border border-[#61a146] rounded-md  bg-base text-white focus:outline-none" required/>
 			</div>
 			<div>
 				<label htmlFor="photo" className="block mb-2 text-[#4c8435]">Photo URL</label>
-				<input type="text" name="photo" placeholder="photo url" className="w-full px-3 py-2 border border-[#61a146] rounded-md  bg-base text-[#61a146] focus:outline-none" />
+				<input type="text" name="photo" placeholder="photo url" className="w-full px-3 py-2 border border-[#61a146] rounded-md  bg-base text-white focus:outline-none" />
 			</div>
 			<div>
 				<div className="flex justify-between mb-2">
 					<label htmlFor="password" className="text-[#4c8435]">Password</label>
 					
 				</div>
-				<input type="password" name="password" placeholder="*****" className="w-full px-3 py-2 border border-[#61a146] rounded-md  bg-base text-[#61a146] focus:outline-none" />
+				<input type="password" name="password" placeholder="*****" className="w-full px-3 py-2 border border-[#61a146] rounded-md  bg-base text-white focus:outline-none" />
 			</div>
 		</div>
 		<div className="space-y-2">
