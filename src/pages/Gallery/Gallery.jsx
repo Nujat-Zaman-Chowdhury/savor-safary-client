@@ -147,14 +147,14 @@ const Gallery = () => {
 
             {/* gallery */}
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-6 px-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-3 md:my-6 px-3">
                 
             {
                 galleries.map(gallery=>
 
                     <div key={gallery._id} className='flex items-center justify-center bg-gradient-to-br'>
                     <div
-                        className="my-5 overflow-hidden  aspect-video cursor-pointer rounded-xl relative group h-[380px] "
+                        className="my-5 overflow-hidden  aspect-video cursor-pointer rounded-xl relative group h-full md:h-[380px] "
                     >
                         <div
                             className="rounded-xl z-50 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out cursor-pointer absolute from-black/80 to-transparent bg-gradient-to-t inset-x-0 -bottom-2 pt-30 text-white flex items-end"

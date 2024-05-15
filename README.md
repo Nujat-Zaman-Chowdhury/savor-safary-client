@@ -2,6 +2,7 @@
 
 - [Live Link(Firebase)](https://server-side-tau-lime.vercel.app)
 
+  Assignment_category_0005(Restaurant Management Website)
 
   Features:
 
@@ -9,10 +10,7 @@
 - Users can navigate through our various categories.
 - Displayed a comprehensive database of different food items.
 - Implemented CRUD operation for managing food items
-- Users can access our website from any device.
-
-
-
+- Users can access out website from any device.
 
 
   Resources:

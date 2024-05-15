@@ -25,7 +25,7 @@ const AllFoods = () => {
 
     useEffect(()=>{
         const getData = async()=>{
-            const {data} = await axios(`${import.meta.env.VITE_API_URL}/all-foods?page=${currentPage}&size=${itemsPerPage}&search=${search}`)
+            const {data} = await axios(`${import.meta.env.VITE_API_URL}/all-foods?page=${currentPage}&size=${itemsPerPage}&search=${search}`,{withCredentials:true})
 
             setFoods(data); 
         }
@@ -35,7 +35,7 @@ const AllFoods = () => {
     // get count
     useEffect(()=>{
         const getCount = async()=>{
-            const {data} = await axios(`${import.meta.env.VITE_API_URL}/foods-count?search=${search}`)
+            const {data} = await axios(`${import.meta.env.VITE_API_URL}/foods-count?search=${search}`,{withCredentials:true})
             setCount(data.count)
             setLoading(false)
         }

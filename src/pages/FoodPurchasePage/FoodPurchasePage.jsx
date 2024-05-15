@@ -3,7 +3,7 @@ import DatePicker from "react-datepicker";
 import useAuth from "../../hooks/useAuth";
 import "react-datepicker/dist/react-datepicker.css";
 import toast from "react-hot-toast";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const FoodPurchasePage = () => {
@@ -16,6 +16,7 @@ const FoodPurchasePage = () => {
     
     const {user} = useAuth();
     const [startDate, setStartDate] = useState(new Date());
+    const navigate = useNavigate()
 
     
     const handleSubmit = async(e)=>{
@@ -61,7 +62,8 @@ const FoodPurchasePage = () => {
 
         try{
             const {data} = axios.post(`${import.meta.env.VITE_API_URL}/purchase-food-items`,purchaseData)
-            toast.success('Purchased Successful')
+            toast.success('Purchased Successful');
+            navigate('/my-ordered-items');
             
         }
         catch(err){
@@ -91,27 +93,27 @@ const FoodPurchasePage = () => {
                 
                 <div>
                     <label className="text-gray-700 dark:text-white">Buyer Name</label>
-                    <input name="name" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-black/60  dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"defaultValue={user && user.displayName} readOnly/>
+                    <input name="name" type="text" className="block w-full px-4 py-2 mt-2 text-white bg-white border border-gray-200 rounded-md dark:bg-black/60  dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"defaultValue={user && user.displayName} readOnly/>
                 </div>
                 <div>
                     <label className="text-gray-700 dark:text-gray-200">Buyer Email</label>
-                    <input name="email" type="email" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-black/60  dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" defaultValue={user && user.email} readOnly/>
+                    <input name="email" type="email" className="block w-full px-4 py-2 mt-2 text-white bg-white border border-gray-200 rounded-md dark:bg-black/60  dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" defaultValue={user && user.email} readOnly/>
                 </div>
                 </div>
                 
                 <div>
                     <label className="text-gray-700 dark:text-gray-200">Food Name</label>
-                    <input name="food_name" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-black/60  dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" defaultValue={food_name}/>
+                    <input name="food_name" type="text" className="block w-full px-4 py-2 mt-2 text-white bg-white border border-gray-200 rounded-md dark:bg-black/60  dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" defaultValue={food_name} />
                 </div>
 
     
                 <div>
                     <label className="text-gray-700 dark:text-gray-200">Quantity</label>
-                    <input name="quantity" type="text" placeholder="" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-black/60  dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"/>
+                    <input name="quantity" type="text" placeholder="" className="block w-full px-4 py-2 mt-2 text-white bg-white border border-gray-200 rounded-md dark:bg-black/60  dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"/>
                 </div>
                 <div>
                     <label className="text-gray-700 dark:text-gray-200">Price</label>
-                    <input name="price" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-black/60  dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" defaultValue={price}/>
+                    <input name="price" type="text" className="block w-full px-4 py-2 mt-2 text-white bg-white border border-gray-200 rounded-md dark:bg-black/60  dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" defaultValue={price} readOnly/>
                 </div>
 
                 <div className="flex justify-end mt-6">

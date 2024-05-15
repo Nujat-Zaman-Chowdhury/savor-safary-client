@@ -54,9 +54,10 @@ const AddFoodItemPage = () => {
             }
             
             try{
-                const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/foods`,foodData)
+                const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/foods`,foodData,{withCredentials:true})
                 toast.success('Food Added Successfully')
                 form.reset();
+                navigate('/my-food-items')
                 
             }
             catch(err){
