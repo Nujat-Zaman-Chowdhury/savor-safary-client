@@ -74,14 +74,14 @@ const MyFoodItemPage = () => {
             <tr key={food._id} className="">
             <td className="px-2 md:px-6 md:py-4 whitespace-nowrap flex justify-center">
                 <div className="flex-shrink-0">
-                        <img className="rounded-md lg:w-40  md:h-32 object-cover object-center" src={food.food_image} alt=""/>
+                        <img className="rounded-md  h-24 w-24 md:w-40  md:h-32 object-cover object-center" src={food.food_image} alt=""/>
                 </div>
             </td>
-            <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-white font-medium font-outfit text-center">{food.food_name}</div>
+            <td className="px-6 py-4 whitespace-nowrap text-center">
+                <div className="text-sm text-white font-medium font-outfit ">{food.food_name}</div>
             </td>
-            <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-white font-medium font-outfit text-center" >{food.category}</div>
+            <td className="px-6 py-4 whitespace-nowrap text-center">
+                <div className="text-sm text-white font-medium font-outfit" >{food.category}</div>
             </td>
             <td className="px-6 py-4 whitespace-nowrap text-center">
                 <span className=" inline-flex text-sm leading-5  rounded-full text-white font-medium font-outfit">

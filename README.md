@@ -1,6 +1,6 @@
 # SavorSafari
 
-- [Live Link(Firebase)](https://server-side-tau-lime.vercel.app)
+- [Live Link(Firebase)](https://assignment-11-21ecc.web.app)
 
   Assignment_category_0005(Restaurant Management Website)
 

@@ -34,7 +34,7 @@ const FoodPurchasePage = () => {
         console.log(buying_date);
         const quantity = parseFloat(form.quantity.value)
         const price = parseFloat(form.price.value)
-        if(quantity<=0) return toast('Include a positive number')
+        if(quantity<=0) return toast('Include a valid number')
 
        if(quantity>availableQuantity){
         return toast.error(`Apologize,${availableQuantity} quantity available`)
@@ -63,7 +63,8 @@ const FoodPurchasePage = () => {
         try{
             const {data} = axios.post(`${import.meta.env.VITE_API_URL}/purchase-food-items`,purchaseData)
             toast.success('Purchased Successful');
-            navigate('/my-ordered-items');
+           
+            
             
         }
         catch(err){
@@ -79,11 +80,11 @@ const FoodPurchasePage = () => {
         </div>
 
         {
-            availableQuantity === 0?
+            availableQuantity === 0 &&
             <div className="flex justify-center my-4">
                 <p className="text-xl text-white font-outfit font-bold">You can not buy that item because that item is not available</p>
             </div>
-            :
+        }
             <form onSubmit={handleSubmit} className="container mx-auto flex flex-col justify-center items-center ">
             <div className="flex flex-col p-5 bg-black rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-gray-100">
                 <div className="my-2">
@@ -123,7 +124,6 @@ const FoodPurchasePage = () => {
     
             
         </form>
-        }
     </section>
     );
 };

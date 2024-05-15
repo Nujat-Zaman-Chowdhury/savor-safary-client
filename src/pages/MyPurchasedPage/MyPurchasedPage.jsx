@@ -77,9 +77,9 @@ const MyPurchasedPage = () => {
         {
             foods.map(food=>(
             <tr key={food._id} className="">
-            <td className="px-6 py-4 whitespace-nowrap">
+            <td className="px-6 py-4 whitespace-nowrap flex justify-center">
                 <div className="flex-shrink-0">
-                        <img className="rounded-md lg:w-40 lg:h-32 object-cover object-center" src={food.food_image} alt=""/>
+                        <img className="rounded-md h-24 w-24  md:w-40 md:h-32 object-cover object-center" src={food.food_image} alt=""/>
                 </div>
             </td>
             <td className="px-6 py-4 whitespace-nowrap text-center">
