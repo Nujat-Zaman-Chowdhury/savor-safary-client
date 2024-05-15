@@ -22,7 +22,7 @@ const TopFoodSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 container mx-auto">
             {
                 foods.map(food=>(
-                    <div key={food._id} className="md:mx-auto my-10 flex  flex-col items-center rounded-xl border px-4 py-4 text-center md:w-[500px] md:flex-row md:items-start md:text-left transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400">
+                    <div key={food._id} className="md:mx-auto my-5 md:my-10 flex  flex-col items-center rounded-xl border px-4 py-4 text-center md:w-[500px] md:flex-row md:items-start md:text-left transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400">
                     <div className="mb-4 md:mr-6 md:mb-0">
                       <img className="h-56 rounded-lg object-cover md:w-56" src={food.food_image} alt="" />
                     </div>
@@ -31,15 +31,15 @@ const TopFoodSection = () => {
                       <p className="mb-4 text-xl font-medium text-white">{food.category}</p> 
                       <div className="flex space-x-2">
                         
-                        <div className="flex flex-col items-center rounded-xl bg-gray-100 mb-2 p-3">
-                          <p className="text-sm font-medium text-gray-800 font-poppins text-center">Price</p>
+                        <div className="w-full flex flex-col justify-center items-center rounded-xl  mb-2 p-3">
+                          <p className="text-sm font-medium text-red-600 font-poppins text-center">Price</p>
                           <p className="text-3xl font-medium text-green-600">$ {food.price}</p>
                         </div>
 
                       </div>
-                      <div className="mb-3"></div>
-                      <div className="flex space-x-2">
-                        <Link to={`/food-details/${food._id}`} className="btn rounded-lg border-2 border-transparent text-center
+                      
+                      <div className=" w-full flex justify-center space-x-2 my-2">
+                        <Link to={`/food-details/${food._id}`} className="btn rounded-lg border b text-center
                          bg-transparent border-green-500 px-4 py-2 font-medium text-white hover:bg-white hover:text-green-400">Details</Link>
                       </div>
                     </div>

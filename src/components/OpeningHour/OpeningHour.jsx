@@ -23,8 +23,8 @@ const OpeningHour = () => {
                     whileInView={"show"}
                     viewport={{once: false, amount:0.2}}
                     className="mt-3 lg:mt-0 lg:absolute lg:w-1/3 lg:top-10 lg:right-40 bg-black p-5 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-100">
-                        <h4 className="text-green-300 md:text-3xl font-outfit font-bold mb-4" >Our Opening Hours</h4>
-                        <p className="mb-2 font-poppins text-gree-100">Welcome to a haven where time stands still, and each moment is an invitation to embrace the beauty of the present.</p>
+                        <h4 className="text-green-500 md:text-3xl font-outfit font-bold mb-4" >Our Opening Hours</h4>
+                        <p className="mb-2 font-poppins text-green-100">Welcome to a haven where time stands still, and each moment is an invitation to embrace the beauty of the present.</p>
                         <ul className="list-none text-white font-outfit font-semibold">
                         <li className="">Sunday To Tuesday: 10:00 - 09:00</li>
                         <li>Wednesday To Thursday: 11:30 - 10:30</li>
