@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import { HelmetProvider } from "react-helmet-async";
 import { Helmet } from "react-helmet";
+import { MdDelete, MdOutlineSystemUpdateAlt } from "react-icons/md";
 
 
 const MyFoodItemPage = () => {
@@ -49,19 +50,19 @@ const MyFoodItemPage = () => {
             <table className="divide-y divide-gray-200 overflow-x-auto  w-full">
     <thead className="bg-gray-50">
         <tr>
-            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
+            <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-black uppercase tracking-wider">
                 Image
             </th>
-            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
+            <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-black uppercase tracking-wider">
                 Name
             </th>
-            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
+            <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-black uppercase tracking-wider">
                 Category
             </th>
-            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
+            <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-black uppercase tracking-wider">
                 Price
             </th>
-            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
+            <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-black uppercase tracking-wider">
                 Actions
             </th>
             
@@ -71,27 +72,29 @@ const MyFoodItemPage = () => {
         {
             foods.map(food=>(
             <tr key={food._id} className="">
-            <td className="px-2 md:px-6 md:py-4 whitespace-nowrap">
+            <td className="px-2 md:px-6 md:py-4 whitespace-nowrap flex justify-center">
                 <div className="flex-shrink-0">
                         <img className="rounded-md lg:w-40  md:h-32 object-cover object-center" src={food.food_image} alt=""/>
                 </div>
             </td>
             <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-white font-medium font-outfit">{food.food_name}</div>
+                <div className="text-sm text-white font-medium font-outfit text-center">{food.food_name}</div>
             </td>
             <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-white font-medium font-outfit">{food.category}</div>
+                <div className="text-sm text-white font-medium font-outfit text-center" >{food.category}</div>
             </td>
-            <td className="px-6 py-4 whitespace-nowrap">
+            <td className="px-6 py-4 whitespace-nowrap text-center">
                 <span className=" inline-flex text-sm leading-5  rounded-full text-white font-medium font-outfit">
-                    $ {food.price}
+                    ${food.price}
                 </span>
             </td>
             
-            <td className="px-6 py-4 whitespace-nowrap space-x-2  text-sm font-medium">
-                <Link to={`/update/${food._id}`} className="btn text-green-600 bg-white">Update</Link>
+            <td className="px-6 py-4 whitespace-nowrap space-x-2  text-sm font-medium ">
+                <div className="flex justify-center gap-2">
+                <Link to={`/update/${food._id}`} className="btn text-green-600 bg-white">Update<MdOutlineSystemUpdateAlt/></Link>
             
-                <button onClick={()=>handleDelete(food._id)} className="btn text-red-600 hover:text-red-600">Delete</button>
+            <button onClick={()=>handleDelete(food._id)} className="bg-white btn text-red-600 hover:text-red-600">Delete<MdDelete/></button>
+                </div>
             </td>
         </tr>
             ))

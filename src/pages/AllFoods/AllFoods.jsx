@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { HelmetProvider } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import ScrollToTop from "../../Utils/ScrollToTop";
 
 
 const AllFoods = () => {
     const [foods,setFoods] = useState([]);
+    const [loading,setLoading] = useState(true);
     const [count,setCount]=useState(0)
     const [itemsPerPage,setItemsPerPage]=useState(9);
     const [currentPage,setCurrentPage]=useState(1);
@@ -18,6 +20,8 @@ const AllFoods = () => {
     
     // console.log(pages);
     const numberOfPages = Math.ceil(count/itemsPerPage);
+
+
 
     useEffect(()=>{
         const getData = async()=>{
@@ -33,6 +37,7 @@ const AllFoods = () => {
         const getCount = async()=>{
             const {data} = await axios(`${import.meta.env.VITE_API_URL}/foods-count?search=${search}`)
             setCount(data.count)
+            setLoading(false)
         }
 
         getCount();
@@ -45,6 +50,7 @@ const AllFoods = () => {
     const handlePaginationButton = (value)=>{
         // console.log(value);
         setCurrentPage(value);
+        window.scrollTo(0, 0);
     }
 
     const handleSearch =(e)=>{
@@ -56,6 +62,7 @@ const AllFoods = () => {
 
     return (
         <div className="w-full h-full font-outfit bg-[url('https://i.ibb.co/8zxX0XY/bg-2.jpg')] bg-cover bg-center bg-no-repeat p-5">
+            
             <HelmetProvider>
             <Helmet>
                 <meta charSet="utf-8" />
@@ -86,12 +93,12 @@ const AllFoods = () => {
             </div>
 
             {/* card */}
-            
+            {loading && <div className="flex justify-center my-3"><span className="loading loading-ring loading-md"></span></div>}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 container mx-auto md:px-7">
             
             {
                 foods.map(food=>(
-                    <div key={food._id} className="w-full overflow-hidden  bg-[#1D1D1D]  rounded-lg shadow-md shadow-zinc-50 bg-grey-100
+                    <div key={food._id} className="w-full overflow-hidden  bg-[#121212]  rounded-lg shadow-md shadow-zinc-50 bg-grey-100
                     group relative transform transition duration-500 hover:scale-105 my-2
                     ">
              <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine">
@@ -106,7 +113,7 @@ const AllFoods = () => {
         <h1 className="text-xl font-semibold text-white">Food Name: <span className="bg-gradient-to-r from-[#639c63] to-[#108310] text-transparent bg-clip-text">{food.food_name}</span></h1>
     </div>
 
-    <div className="px-6 py-2 bg-[#1D1D1D]">
+    <div className="px-6 py-2 bg-[#121212]">
         <h1 className="text-xl font-semibold text-gray-800 dark:text-white">Food Category: <span className="bg-gradient-to-r from-[#639c63] to-[#108310] text-transparent bg-clip-text">{food.category}</span></h1>
 
         

@@ -18,7 +18,7 @@ const Gallery = () => {
         if(user){
             document.getElementById('my_modal_1').showModal();
         }
-        else navigate('/login')
+        else navigate('/login', {state: location?.pathname})
     }
 
     const handleSubmit =async e =>{
@@ -86,6 +86,8 @@ const Gallery = () => {
         window.addEventListener("scroll",handleInfiniteScroll)
         return()=>window.removeEventListener("scroll",handleInfiniteScroll);
     },[])
+
+
     return (
         <div className="">
             <HelmetProvider>

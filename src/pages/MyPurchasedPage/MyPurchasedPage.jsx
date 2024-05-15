@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import { HelmetProvider } from "react-helmet-async";
 import { Helmet } from "react-helmet";
+import { MdDelete } from "react-icons/md";
 
 const MyPurchasedPage = () => {
     const {user}= useAuth();
@@ -50,23 +51,23 @@ const MyPurchasedPage = () => {
             <table className="divide-y divide-gray-200 overflow-x-auto w-full">
     <thead className="bg-gray-50">
         <tr>
-            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black font-outfit uppercase tracking-wider">
+            <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-black font-outfit uppercase tracking-wider">
                 Image
             </th>
-            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black font-outfit uppercase tracking-wider">
+            <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-black font-outfit uppercase tracking-wider">
             Food Owner
             </th>
-            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black font-outfit uppercase tracking-wider">
+            <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-black font-outfit uppercase tracking-wider">
                 Name
             </th>
-            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black font-outfit uppercase tracking-wider">
+            <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-black font-outfit uppercase tracking-wider">
                 Price
             </th>
-            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black font-outfit uppercase tracking-wider">
+            <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-black font-outfit uppercase tracking-wider">
             Added Date
             </th>
             
-            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black font-outfit uppercase tracking-wider">
+            <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-black font-outfit uppercase tracking-wider">
                 Actions
             </th>
             
@@ -81,24 +82,26 @@ const MyPurchasedPage = () => {
                         <img className="rounded-md lg:w-40 lg:h-32 object-cover object-center" src={food.food_image} alt=""/>
                 </div>
             </td>
-            <td className="px-6 py-4 whitespace-nowrap">
+            <td className="px-6 py-4 whitespace-nowrap text-center">
                 <div className="text-sm text-white font-medium">{food.food_owner}</div>
             </td>
-            <td className="px-6 py-4 whitespace-nowrap">
+            <td className="px-6 py-4 whitespace-nowrap text-center">
                 <div className="text-sm text-white font-medium">{food.food_name}</div>
             </td>
-            <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-white font-medium">{food.price}</div>
+            <td className="px-6 py-4 whitespace-nowrap text-center">
+                <div className="text-sm text-white font-medium">$ {food.price}</div>
             </td>
             
-            <td className="px-6 py-4 whitespace-nowrap">
+            <td className="px-6 py-4 whitespace-nowrap text-center">
                 <span className="px-2 inline-flex text-sm text-white font-medium leading-5  rounded-full">
                     {food.buying_date}
                 </span>
             </td>
             
             <td className="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                <button className="btn bg-red-500 border-0  text-white font-outfit hover:text-red-500" onClick={()=>handleDelete(food._id)}>Delete</button>
+                <div className="flex justify-center">
+                <button className="btn bg-red-500 border-0  text-white font-outfit hover:text-red-500" onClick={()=>handleDelete(food._id)}>Delete <MdDelete /></button>
+                </div>
             </td>
         </tr>
             ))
