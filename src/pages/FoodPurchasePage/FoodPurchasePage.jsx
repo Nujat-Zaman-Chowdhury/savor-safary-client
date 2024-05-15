@@ -12,7 +12,8 @@ const FoodPurchasePage = () => {
     const {_id,food_name,food_image,category,price,name,food_origin,description,quantity,addBy} = food || {};
     // console.log(addBy);
     const availableQuantity = quantity;
-  
+    
+    
     const {user} = useAuth();
     const [startDate, setStartDate] = useState(new Date());
 
@@ -28,6 +29,7 @@ const FoodPurchasePage = () => {
         const email = user?.email;
         const food_name = form.food_name.value;
         const buying_date = startDate.toDateString();
+        const food_owner = addBy.name;
         console.log(buying_date);
         const quantity = parseFloat(form.quantity.value)
         const price = parseFloat(form.price.value)
@@ -52,6 +54,7 @@ const FoodPurchasePage = () => {
             },
             purchase_count:0,
             availableQuantity,
+            food_owner,
 
         }
         // console.log(purchaseData);

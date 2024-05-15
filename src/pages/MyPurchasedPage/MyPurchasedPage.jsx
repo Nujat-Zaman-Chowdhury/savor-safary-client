@@ -54,7 +54,7 @@ const MyPurchasedPage = () => {
                 Image
             </th>
             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black font-outfit uppercase tracking-wider">
-                owner
+            Food Owner
             </th>
             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black font-outfit uppercase tracking-wider">
                 Name
@@ -82,7 +82,7 @@ const MyPurchasedPage = () => {
                 </div>
             </td>
             <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-white font-medium">{food.name}</div>
+                <div className="text-sm text-white font-medium">{food.food_owner}</div>
             </td>
             <td className="px-6 py-4 whitespace-nowrap">
                 <div className="text-sm text-white font-medium">{food.food_name}</div>

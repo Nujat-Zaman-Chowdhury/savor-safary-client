@@ -87,32 +87,39 @@ const AllFoods = () => {
 
             {/* card */}
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 container mx-auto md:px-7">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 container mx-auto md:px-7">
+            
             {
                 foods.map(food=>(
-                    <div key={food._id} className="w-full overflow-hidden  bg-black  rounded-lg shadow-md shadow-zinc-50 bg-grey-100">
-            <img className="md:h-[320px] w-full object-cover object-center" src={food.food_image} alt="avatar"/>
+                    <div key={food._id} className="w-full overflow-hidden  bg-[#1D1D1D]  rounded-lg shadow-md shadow-zinc-50 bg-grey-100
+                    group relative transform transition duration-500 hover:scale-105 my-2
+                    ">
+             <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine">
+            </div>           
+            <div className="p-2">
+            <img className="md:h-[320px] w-full object-cover object-center rounded-md" src={food.food_image} alt="avatar"/>
+            </div>
 
-    <div className="flex px-6 py-3 bg-white">
+    <div className="flex px-6">
         
 
-        <h1 className="text-xl font-semibold text-gray-900">Food Name: <span className="bg-gradient-to-r from-[#183a18] to-[#012901] text-transparent bg-clip-text">{food.food_name}</span></h1>
+        <h1 className="text-xl font-semibold text-white">Food Name: <span className="bg-gradient-to-r from-[#639c63] to-[#108310] text-transparent bg-clip-text">{food.food_name}</span></h1>
     </div>
 
-    <div className="px-6 py-4 bg-black">
-        <h1 className="text-xl font-semibold text-gray-800 dark:text-white">Food Category: {food.category}</h1>
+    <div className="px-6 py-2 bg-[#1D1D1D]">
+        <h1 className="text-xl font-semibold text-gray-800 dark:text-white">Food Category: <span className="bg-gradient-to-r from-[#639c63] to-[#108310] text-transparent bg-clip-text">{food.category}</span></h1>
 
         
 
         <div className="flex gap-6 items-center mt-4 text-gray-700 dark:text-gray-200">
             
 
-            <h1 className="text-sm">Price: $ {food.price}</h1>
-            <h1 className="text-sm">Quantity: {food.quantity}</h1>
+            <h1 className="text-sm text-white">Price: <span className="text-sky-400">${food.price}</span></h1>
+            <h1 className="text-sm text-white">Quantity: <span className="text-purple-400">{food.quantity}</span></h1>
         </div>
-        <div className="h-full md:h-[150px] flex flex-col flex-grow">
-            <h4 className="font-poppins mt-4 text-white">Description</h4>
-            <span>{food.description}</span>
+        <div className="h-full md:h-[140px] flex flex-col flex-grow">
+            <h4 className="font-poppins mt-4  text-red-400">Description</h4>
+            <span className="font-poppins  text-sm font-medium text-[#FDFDFD]">{food.description}</span>
         </div>
 
 
