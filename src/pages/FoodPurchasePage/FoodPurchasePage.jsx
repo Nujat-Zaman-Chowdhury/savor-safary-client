@@ -70,10 +70,10 @@ const FoodPurchasePage = () => {
         }
     }
     return (
-        <section className="p-6 mx-auto bg-[url('https://i.ibb.co/Vt5F7dy/jason-leung-po-I7-Del-Fi-VA-unsplash.jpg')] bg-cover bg-center bg-no-repeat">
+        <section className="p-6 mx-auto bg-[linear-gradient(to_right_bottom,rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url('https://i.ibb.co/Vt5F7dy/jason-leung-po-I7-Del-Fi-VA-unsplash.jpg')] bg-cover bg-center bg-no-repeat">
         
         <div className="text-center my-2 space-y-2">
-        <h2 className="text-lg lg:text-3xl  font-bold text-gray-700 capitalize dark:text-white">Purchase Food Item</h2>
+        <h2 className="text-lg lg:text-3xl  font-bold  capitalize text-white">Purchase Food Item</h2>
         </div>
 
         {

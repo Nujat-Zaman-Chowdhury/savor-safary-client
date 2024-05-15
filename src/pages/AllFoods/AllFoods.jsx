@@ -81,7 +81,7 @@ const AllFoods = () => {
             </div>
 
             {/* search box */}
-            <div className="flex items-center justify-between pb-6 md:py-0 lg:w-1/2 my-6 md:ml-10 font-outfit">
+            <div className="flex items-center pb-6 md:py-0 lg:w-1/2 my-6 md:ml-10 font-outfit">
                 <form onSubmit={handleSearch} className="">
                     <div className="flex flex-col md:flex-row bg-black/70 p-1.5 overflow-hidden border rounded-lg dark:border-gray-600 lg:flex-row dark:focus-within:border-blue-300 focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
                         <input className="px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none dark:bg-white dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent" type="text" 
@@ -94,12 +94,12 @@ const AllFoods = () => {
                         <button className="btn btn-ghost font-outline px-5 py-3 text-base font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gradient-to-r from-[#223822] to-[#98FB98] text-transparent bg-clip-text rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">Search</button>
                     </div>
                 </form>
-                {/* reset button */}
-                <div className="ll-4">
-                <button onClick={handleReset} className='btn'>Reset</button>
-                </div>
+                
             </div>
-            
+            {/* reset button */}
+            <div className="flex justify-center">
+                <button onClick={handleReset} className='btn'>Reset</button>
+            </div>
             
 
             {/* card */}
@@ -114,7 +114,7 @@ const AllFoods = () => {
              <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine">
             </div>           
             <div className="p-2">
-            <img className="md:h-[320px] w-full object-cover object-center rounded-md" src={food.food_image} alt="avatar"/>
+            <img className="h-[300px] md:h-[320px] w-full object-cover object-center rounded-md" src={food.food_image} alt="avatar"/>
             </div>
 
     <div className="flex px-6">
