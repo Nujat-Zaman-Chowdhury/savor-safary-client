@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { HelmetProvider } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import ScrollToTop from "../../Utils/ScrollToTop";
+
 
 
 const AllFoods = () => {
@@ -15,6 +15,8 @@ const AllFoods = () => {
 
     const [search,setSearch] = useState('')
     const [searchText,setSearchText] = useState('')
+
+    const [filter,setFilter] = useState('')
    
    
     
@@ -25,23 +27,23 @@ const AllFoods = () => {
 
     useEffect(()=>{
         const getData = async()=>{
-            const {data} = await axios(`${import.meta.env.VITE_API_URL}/all-foods?page=${currentPage}&size=${itemsPerPage}&search=${search}`,{withCredentials:true})
+            const {data} = await axios(`${import.meta.env.VITE_API_URL}/all-foods?page=${currentPage}&size=${itemsPerPage}&search=${search}&filter=${filter}`,{withCredentials:true})
 
             setFoods(data); 
         }
         getData();
-    },[currentPage,itemsPerPage,search])
+    },[currentPage, filter, itemsPerPage, search])
 
     // get count
     useEffect(()=>{
         const getCount = async()=>{
-            const {data} = await axios(`${import.meta.env.VITE_API_URL}/foods-count?search=${search}`,{withCredentials:true})
+            const {data} = await axios(`${import.meta.env.VITE_API_URL}/foods-count?search=${search}&filter=${filter}`,{withCredentials:true})
             setCount(data.count)
             setLoading(false)
         }
 
         getCount();
-    },[search])
+    },[filter, search])
     // console.log(count);
 
 
@@ -62,6 +64,7 @@ const AllFoods = () => {
     const handleReset=()=>{
         setSearch('');
         setSearchText('')
+        setFilter('')
     }
 
     return (
@@ -81,7 +84,29 @@ const AllFoods = () => {
             </div>
 
             {/* search box */}
-            <div className="flex items-center pb-6 md:py-0 lg:w-1/2 my-6 md:ml-10 font-outfit">
+            <div className="flex gap-4 items-center pb-6 md:py-0 lg:w-1/2 my-6 md:ml-10 font-outfit">
+            <div>
+              <select
+                onChange={e=>{setFilter(e.target.value)
+                    setCurrentPage(1)
+                }}
+                value={filter}
+                name='category'
+                id='category'
+                className='border p-4 rounded-lg text-green-500'
+              >
+                <option value=''>Filter By Category</option>
+                <option value='Appetizers'>Appetizers</option>
+                <option value='Soup'>Soup</option>
+                <option value='Salad'>Salad</option>
+                <option value='Entrees'>Entrees</option>
+                <option value='Pizza'>Pizza</option>
+                <option value='Curry'>Curry</option>
+                <option value='Sushi'>Sushi</option>
+                <option value='Steak'>Steak</option>
+                <option value='Dessert'>Dessert</option>
+              </select>
+            </div>
                 <form onSubmit={handleSearch} className="">
                     <div className="flex flex-col md:flex-row bg-black/70 p-1.5 overflow-hidden border rounded-lg dark:border-gray-600 lg:flex-row dark:focus-within:border-blue-300 focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
                         <input className="px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none dark:bg-white dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent" type="text" 
@@ -94,12 +119,12 @@ const AllFoods = () => {
                         <button className="btn btn-ghost font-outline px-5 py-3 text-base font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gradient-to-r from-[#223822] to-[#98FB98] text-transparent bg-clip-text rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">Search</button>
                     </div>
                 </form>
-                
-            </div>
-            {/* reset button */}
+                 {/* reset button */}
             <div className="flex justify-center">
                 <button onClick={handleReset} className='btn'>Reset</button>
             </div>
+            </div>
+           
             
 
             {/* card */}
